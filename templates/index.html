@@ -4,81 +4,120 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script
+      src="https://kit.fontawesome.com/df67bacc25.js"
+      crossorigin="anonymous"
+    ></script>
     
-    <link real="stylesheet" href="/static/css/styles.css"/>
-    <link real="stylesheet" href="/static/css/main.css"/>
+    <link rel="stylesheet" href="css/main.css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
 </head>
 <body>
+    <nav class="navbar is-transparent">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="https://bulma.io">
+            <img src="https://bulma.io/images/bulma-logo.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28">
+          </a>
+          <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+      
+        <div id="navbarExampleTransparentExample" class="navbar-menu">
+          <div class="navbar-start">
+            <a class="navbar-item" href="#">
+              Home
+            </a>
+           
+        </div>
+      
+          <div class="navbar-end">
+            <div class="navbar-item">
+              <div class="field is-grouped">
 
-    <div class="columns is-mobile is-centered mt-6 pt-6">
-    <div class="column is-half">
-                    <div class="field">
-                        <label class="label">Name</label>
-                        <div class="control">
-                            <input class="input" type="text" placeholder="Name">
-                        </div>
-                    </div>
+                <p class="control">
+                  <a class="bd-tw-button button" href="#">
+                    <span class="icon">
+                      <i class="fab fa-twitter"></i>
+                    </span>
+                    <span>
+                      Login
+                    </span>
+                  </a>
+                </p>
 
-                    
-                    <div class="field">
-                        <label class="label">Username</label>
-                        <div class="control has-icons-left has-icons-right">
-                            <input class="input " type="text" placeholder="Username" >
+                <p class="control">
+                  <a class="button is-primary" href="#">
+                    <span class="icon">
+                      <i class="fas fa-download"></i>
+                    </span>
+                    <span>Sign up</span>
+                  </a>
+                </p>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+
+      <div class="columns is-mobile is-centered mt-6 pt-6">
+        <div class="column is-half">
+                    <form method="POST">
+                          <div class="field">
+                                <label class="label">ID</label>
+                                <div class="control">
+                                    <input class="input" name="ID" type="text" placeholder="ID">
+                                </div>
+                          </div>
+                          <div class="field">
+                            <label class="label">Name</label>
+                            <div class="control">
+                                <input class="input" name="Name" type="text" placeholder="Name">
+                            </div>
                         </div>
-                    </div>
-                    
-                    <div class="field">
-                        <label class="label">Email</label>
-                        <div class="control has-icons-left has-icons-right">
-                            <input class="input " type="email" placeholder="Email" >
+    
+                        
+                        <div class="field">
+                            <label class="label">Username</label>
+                            <div class="control has-icons-left has-icons-right">
+                                <input class="input " name="Username" type="text" placeholder="Username" >
+                            </div>
                         </div>
                         
-                    </div>
-                    <div class="field">
-                        <label class="label">Password</label>
-                        <div class="control has-icons-left has-icons-right">
-                            <input class="input " type="password" placeholder="password" value="">
+                        <div class="field">
+                            <label class="label">Email</label>
+                            <div class="control has-icons-left has-icons-right">
+                                <input class="input " name="Email" type="email" placeholder="Email" >
+                            </div>
+                            
+                        </div>
+                        <div class="field">
+                            <label class="label">Password</label>
+                            <div class="control has-icons-left has-icons-right">
+                                <input class="input " name="Password" type="password" placeholder="password" value="">
+                            </div>
+                            
                         </div>
                         
-                    </div>
-                    
-                    <!--<div class="field">
-                        <label class="label">Subject</label>
-                        <div class="control">
-                        <div class="select">
-                            <select>
-                            <option>Select dropdown</option>
-                            <option>With options</option>
-                            </select>
+                      
+                        
+                        
+                        
+                        <div class="field is-grouped">
+                            <div class="control">
+                            <button class="button is-link">Submit</button>
+                            </div>
+                            <div class="control">
+                            <button class="button is-link is-light">Cancel</button>
+                            </div>
                         </div>
-                        </div>
-                    </div>-->
-                    
-                   <!-- <div class="field">
-                        <label class="label">Message</label>
-                        <div class="control">
-                        <textarea class="textarea" placeholder="Textarea"></textarea>
-                        </div>
-                    </div>-->
-                    
-                    
-                    
-                    <div class="field is-grouped">
-                        <div class="control">
-                        <button class="button is-link">Submit</button>
-                        </div>
-                        <div class="control">
-                        <button class="button is-link is-light">Cancel</button>
-                        </div>
-                    </div>
-    </div>
-    </div>
-
-    <script src="/static/js/jquery.js"></script>
-    <script src="/static/js/scripts.js"></script>
+                    </form>
+        </div>
+        </div>
+    
 </body>
 </html>
-
-    
-
