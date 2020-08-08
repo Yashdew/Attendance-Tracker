@@ -9,13 +9,13 @@
       crossorigin="anonymous"
     ></script>
     
-    <link rel="stylesheet" href="css/main.css"/>
+    <!--<link rel="stylesheet" href="css/main.css"/>-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
 </head>
 <body>
     <nav class="navbar is-transparent">
         <div class="navbar-brand">
-          <a class="navbar-item" href="https://bulma.io">
+          <a class="navbar-item" href="#">
             <img src="https://bulma.io/images/bulma-logo.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28">
           </a>
           <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
@@ -30,94 +30,22 @@
             <a class="navbar-item" href="#">
               Home
             </a>
-           
-        </div>
+            
+          </div>
       
           <div class="navbar-end">
             <div class="navbar-item">
               <div class="field is-grouped">
-
-                <p class="control">
-                  <a class="bd-tw-button button" href="#">
-                    <span class="icon">
-                      <i class="fab fa-twitter"></i>
-                    </span>
-                    <span>
-                      Login
-                    </span>
-                  </a>
-                </p>
-
-                <p class="control">
-                  <a class="button is-primary" href="#">
-                    <span class="icon">
-                      <i class="fas fa-download"></i>
-                    </span>
-                    <span>Sign up</span>
-                  </a>
-                </p>
-
+                <form action = "/signup" method="GET">
+                    <button class="button">signup</button>
+                </form>    
+                <form action = "/signup" method="GET">
+                    <button class="button">Login</button>
+                </form>
               </div>
             </div>
           </div>
         </div>
       </nav>
-
-
-      <div class="columns is-mobile is-centered mt-6 pt-6">
-        <div class="column is-half">
-                    <form method="POST">
-                          <div class="field">
-                                <label class="label">ID</label>
-                                <div class="control">
-                                    <input class="input" name="ID" type="text" placeholder="ID">
-                                </div>
-                          </div>
-                          <div class="field">
-                            <label class="label">Name</label>
-                            <div class="control">
-                                <input class="input" name="Name" type="text" placeholder="Name">
-                            </div>
-                        </div>
-    
-                        
-                        <div class="field">
-                            <label class="label">Username</label>
-                            <div class="control has-icons-left has-icons-right">
-                                <input class="input " name="Username" type="text" placeholder="Username" >
-                            </div>
-                        </div>
-                        
-                        <div class="field">
-                            <label class="label">Email</label>
-                            <div class="control has-icons-left has-icons-right">
-                                <input class="input " name="Email" type="email" placeholder="Email" >
-                            </div>
-                            
-                        </div>
-                        <div class="field">
-                            <label class="label">Password</label>
-                            <div class="control has-icons-left has-icons-right">
-                                <input class="input " name="Password" type="password" placeholder="password" value="">
-                            </div>
-                            
-                        </div>
-                        
-                      
-                        
-                        
-                        
-                        <div class="field is-grouped">
-                            <div class="control">
-                            <button class="button is-link">Submit</button>
-                            </div>
-                            <div class="control">
-                            <button class="button is-link is-light">Cancel</button>
-                            </div>
-                        </div>
-                    </form>
-        </div>
-        </div>
-    
 </body>
 </html>

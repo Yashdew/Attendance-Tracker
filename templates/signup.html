@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script
+      src="https://kit.fontawesome.com/df67bacc25.js"
+      crossorigin="anonymous"
+    ></script>
+    
+    <!--<link rel="stylesheet" href="css/main.css"/>-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+</head>
+<body>
+    <nav class="navbar is-transparent">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="https://bulma.io">
+            <img src="https://bulma.io/images/bulma-logo.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28">
+          </a>
+          <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+      
+        <div id="navbarExampleTransparentExample" class="navbar-menu">
+          <div class="navbar-start">
+            <a class="navbar-item" href="#">
+              Home
+            </a>
+           
+        </div>
+      
+          <div class="navbar-end">
+            <div class="navbar-item">
+              <div class="field is-grouped">
+                <form action = "/signup" method="GET">
+                    <button class="button">signup</button>
+                </form>    
+                <form action = "/login" method="GET">
+                    <button class="button">Login</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+
+      <div class="columns is-mobile is-centered mt-6 pt-6">
+        <div class="column is-half">
+                    <form  action = "/register" method="POST">
+                          <div class="field">
+                                <label class="label">ID</label>
+                                <div class="control">
+                                    <input class="input" name="ID" type="text" placeholder="ID">
+                                </div>
+                          </div>
+                          <div class="field">
+                            <label class="label">Name</label>
+                            <div class="control">
+                                <input class="input" name="Name" type="text" placeholder="Name">
+                            </div>
+                        </div>
+    
+                        
+                        <div class="field">
+                            <label class="label">Username</label>
+                            <div class="control has-icons-left has-icons-right">
+                                <input class="input " name="Username" type="text" placeholder="Username" >
+                            </div>
+                        </div>
+                        
+                        <div class="field">
+                            <label class="label">Email</label>
+                            <div class="control has-icons-left has-icons-right">
+                                <input class="input " name="Email" type="email" placeholder="Email" >
+                            </div>
+                            
+                        </div>
+                        <div class="field">
+                            <label class="label">Password</label>
+                            <div class="control has-icons-left has-icons-right">
+                                <input class="input " name="Password" type="password" placeholder="password" value="">
+                            </div>
+                            
+                        </div>
+                        
+                      
+                        
+                        
+                        
+                        <div class="field is-grouped">
+                            <div class="control">
+                            <button class="button is-link">Submit</button>
+                            </div>
+                            <div class="control">
+                            <button class="button is-link is-light">Cancel</button>
+                            </div>
+                        </div>
+                    </form>
+        </div>
+        </div>
+        <section>
+            <div class="card">
+                <div class="card-content">
+                  <p class="title">
+                   {{ new_ID }} 
+                  </p>
+                </div>
+            </div>
+        </section>
+    
+</body>
+</html>
