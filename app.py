@@ -21,7 +21,22 @@ def register_page():
 
 @app.route('/register', methods=['POST'])
 def register():
-  return render_template('check.html')  
+    record = {
+            "_id": request.form['ID'],
+            "name":  request.form['Name'], 
+            "username": request.form['Username'],
+            "email":  request.form['Email'],
+            "password":  request.form['Password']
+
+        }
+    mycol.insert_one(record)
+        
+    return render_template('check.html')  
+
+@app.route('/check', methods=['POST'])
+def check():
+    return render_template('checkstatus.html')   
+app.run(debug=True)    
 
 
     
