@@ -5,7 +5,7 @@ myclient = pymongo.MongoClient("mongodb+srv://yashdew:5kAa9bRquer0cRtq@cluster0.
                                                     
 mydb = myclient["Yashdb"]
 mycol = mydb["Yashdb"]
-var = "yashdewangan123456@gmail.com"
+var = "jgdjkAHKJ@gmail.com"
 for x in mycol.find():
     if x['email']==var:
            print(x['_id'])
@@ -13,4 +13,6 @@ for x in mycol.find():
            print(x['username'])
            print(x['email'])
 
-        
+        """<!--<p class="title is-3">Name - {{x}} </p>-->
+              <!--<p class="title is-3">Username - {{recordCheck.name}}</p>
+              <p class="title is-3">email - {{recordCheck.name}}</p>-->"""

@@ -13,8 +13,8 @@ mycol = mydb["Yashdb"]
 
 @app.route('/')
 def index():
-    #return render_template('index.html')
-    return render_template('check.html')  
+    return render_template('index.html')
+    
 
 @app.route('/signup')
 def register_page():
@@ -35,18 +35,22 @@ def register():
         
     return render_template('check.html')  
 
+@app.route('/login')
+def check1():
+    return render_template('check.html')
+
 @app.route('/check', methods=['POST'])
 def check():
+    print(request.form['email'])
     for x in mycol.find():
-        if x['email']==request.form['Email']:
-            recordCheck = {
-                "_id": ['ID'],
-                "name":  request.form['Name'], 
-                "username": request.form['Username'],
-                "email":  request.form['Email'],
-                "password":  request.form['Password']
-            }
-    return render_template('checkstatus.html',recordCheck=recordCheck)   
+       # print(x['email'])
+        if x['email']==request.form['email']:
+            print(request.form['email'])
+            name=x['name']
+            username=x['username']
+            email=x['email']
+          
+    return render_template('checkstatus.html',name=name,username=username,email=email)   
 app.run(debug=True)    
 
 
