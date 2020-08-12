@@ -13,6 +13,4 @@ for x in mycol.find():
            print(x['username'])
            print(x['email'])
 
-        """<!--<p class="title is-3">Name - {{x}} </p>-->
-              <!--<p class="title is-3">Username - {{recordCheck.name}}</p>
-              <p class="title is-3">email - {{recordCheck.name}}</p>-->"""
+            
