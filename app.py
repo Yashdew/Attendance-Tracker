@@ -1,13 +1,18 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, flash
 import pymongo
 from pymongo import MongoClient
 import requests
 
+UPLOAD_FOLDER = '/path/to/the/uploads'
+ALLOWED_EXTENSIONS = {'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif','csv'} 
 
 app = Flask(__name__)
 
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+
 myclient = pymongo.MongoClient("mongodb+srv://yashdew:5kAa9bRquer0cRtq@cluster0.c6ung.mongodb.net/yashdew?retryWrites=true&w=majority")
-                                                    
+
+                                                 
 mydb = myclient["Yashdb"]
 mycol = mydb["Yashdb"]
 
@@ -23,17 +28,37 @@ def register_page():
 
 @app.route('/register', methods=['POST'])
 def register():
-    record = {
-            "_id": request.form['ID'],
-            "name":  request.form['Name'], 
-            "username": request.form['Username'],
-            "email":  request.form['Email'],
-            "password":  request.form['Password']
+    valid = True
+    if request.form['Email'] == "":
+        valid = False
+        flash("Email cannot be empty")
+        return redirect("/signup")
+    if request.form['Password'] == "":
+        valid = False
+        flash("Password cannot be empty")
+        return redirect("/signup")
+    if request.form['Name'] == "":
+        valid = False
+        flash("Name cannot be empty")
+        return redirect("/signup")
+    if request.form['Password'] != request.form['CPassword']:
+        valid = False
+        flash("Your passwords need to match")
+        return redirect("/signup")
+    if not valid:
+        return redirect("/signup")
+    else:
+        record = {
+                "_id": request.form['ID'],
+                "name":  request.form['Name'], 
+                "username": request.form['Username'],
+                "email":  request.form['Email'],
+                "password":  request.form['Password']
 
-        }
-    mycol.insert_one(record)
+            }
+        mycol.insert_one(record)
         
-    return render_template('check.html')  
+        return render_template('check.html')  
 
 @app.route('/login')
 def check1():
@@ -44,14 +69,23 @@ def check():
     print(request.form['email'])
     for x in mycol.find():
        # print(x['email'])
-        if x['email']==request.form['email']:
-            print(request.form['email'])
+        if x['email']==request.form['email'] and x['password']==request.form['Password']:
+            #print(request.form['email'])
             name=x['name']
             username=x['username']
             email=x['email']
           
-    return render_template('checkstatus.html',name=name,username=username,email=email)   
-app.run(debug=True)    
+    return render_template('checkstatus.html',name=name,username=username,email=email)  
+
+@app.route('/dashboard')
+def dashboard():
+    return render_template('dashboard.html') 
+
+'''def allowed_file(filename):
+    return '.' in filename and \
+           filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS'''
+app.run(debug=True)   
+
 
 
     

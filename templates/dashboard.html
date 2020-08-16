@@ -15,7 +15,7 @@
 <body>
     <nav class="navbar is-transparent">
         <div class="navbar-brand">
-          <a class="navbar-item" href="#">
+          <a class="navbar-item" href="https://bulma.io">
             <img src="https://bulma.io/images/bulma-logo.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28">
           </a>
           <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
@@ -30,8 +30,8 @@
             <a class="navbar-item" href="#">
               Home
             </a>
-            
-          </div>
+           
+        </div>
       
           <div class="navbar-end">
             <div class="navbar-item">
@@ -39,7 +39,7 @@
                 <form action = "/signup" method="GET">
                     <button class="button">signup</button>
                 </form>    
-                <form action = "/signup" method="GET">
+                <form action = "/login" method="GET">
                     <button class="button">Login</button>
                 </form>
               </div>
@@ -47,20 +47,33 @@
           </div>
         </div>
       </nav>
+
       <section>
         <div class="columns is-mobile is-centered mt-6 pt-6">
             <div class="column is-half">
-              <p class="title is-3">Name - {{name}} </p>
-              <p class="title is-3">Username - {{username}}</p>
-              <p class="title is-3">email - {{email}}</p>
-            </div>
+                <p class="title is-3">upload your CSV</p>
+                <form action="/action_page.php">
+                    <label for="myfile">Select files:</label>
+                    <input type="file" id="myfile" name="myfile" multiple><br><br>
+                    
+                  </form>
+                <div class="select mt-5">
+                    <select>
+                      <option>Select Division</option>
+                      <option>Div 1</option>
+                      <option>Div2</option>
+                      <option>Both Division</option>
+                    </select>
+                </div>
 
-            <form  action = "/dashboard" method="GET">
-              <div class="control">
-                <button class="button is-primary">dashboard</button>
+                <div class="control mt-5">
+                    <button class="button is-primary">Submit</button>
+                </div>
             </div>
-            </form>
-        </div>    
+        </div>
       </section>
+      
+        
+    
 </body>
 </html>
