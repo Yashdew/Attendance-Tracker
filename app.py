@@ -2,9 +2,14 @@ from flask import Flask, render_template, request, redirect, flash
 import pymongo
 from pymongo import MongoClient
 import requests
+import pandas as pd
+import json
+import time 
 
 UPLOAD_FOLDER = '/path/to/the/uploads'
 ALLOWED_EXTENSIONS = {'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif','csv'} 
+
+filename=open("C:/Users/yashd/OneDrive/Desktop/yash1.csv")
 
 app = Flask(__name__)
 
@@ -15,6 +20,9 @@ myclient = pymongo.MongoClient("mongodb+srv://yashdew:5kAa9bRquer0cRtq@cluster0.
                                                  
 mydb = myclient["Yashdb"]
 mycol = mydb["Yashdb"]
+
+mydb1 = myclient["app"]
+mycol1 = mydb["users1"]
 
 @app.route('/')
 def index():
@@ -81,9 +89,16 @@ def check():
 def dashboard():
     return render_template('dashboard.html') 
 
-'''def allowed_file(filename):
-    return '.' in filename and \
-           filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS'''
+@app.route('/upload', methods=['POST'])
+def download():
+    """filename=request.form['myfile']
+    print(request.form['myfile'])"""
+    df = pd.read_csv(filename)
+    data = df.to_dict('records')
+    mycol1.insert_many(data)
+    return render_template('download.html')
+
+
 app.run(debug=True)   
 
 
