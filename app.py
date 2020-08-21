@@ -6,10 +6,10 @@ import pandas as pd
 import json
 import time 
 
-UPLOAD_FOLDER = '/path/to/the/uploads'
+UPLOAD_FOLDER = './path/to/the/uploads'
 ALLOWED_EXTENSIONS = {'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif','csv'} 
 
-filename=open("C:/Users/yashd/OneDrive/Desktop/yash1.csv")
+
 
 app = Flask(__name__)
 
@@ -91,11 +91,12 @@ def dashboard():
 
 @app.route('/upload', methods=['POST'])
 def download():
-    """filename=request.form['myfile']
-    print(request.form['myfile'])"""
-    df = pd.read_csv(filename)
-    data = df.to_dict('records')
-    mycol1.insert_many(data)
+    #filename=request.form['myfile']
+    print(request.form)
+    print(request.files.get('myfile'))
+    df = pd.read_csv(request.files.get('myfile'))
+    print(df)
+    #mycol1.insert_many(data)
     return render_template('download.html')
 
 
