@@ -94,7 +94,7 @@ def download():
     #filename=request.form['myfile']
     print(request.form)
     print(request.files.get('myfile'))
-    df = pd.read_csv(request.files.get('myfile'))
+    df = pd.read_csv(request.files.get('myfile'),encoding='utf-16',delimiter='\t')
     print(df)
     #mycol1.insert_many(data)
     return render_template('download.html')
