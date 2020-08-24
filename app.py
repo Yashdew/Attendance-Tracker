@@ -5,20 +5,12 @@ import requests
 import pandas as pd
 import json
 import time 
-<<<<<<< refs/remotes/origin/kulkarni
 import datetime
 import math
 import gspread as gs
 from df2gspread import df2gspread as d2g
 from oauth2client.service_account import ServiceAccountCredentials
 import numpy as np
-=======
-import gspread as gs
-from df2gspread import df2gspread as d2g
-from oauth2client.service_account import ServiceAccountCredentials
-import datetime
-import math
->>>>>>> local
 
 
 spreadsheetid = "1l4edR5UL8Ayg9AYtLjlMspdHdMjCeQ8P8RvKBMbEcH0"
@@ -110,22 +102,7 @@ def download():
     #filename=request.form['myfile']
     print(request.form)
     print(request.files.get('myfile'))
-<<<<<<< refs/remotes/origin/kulkarni
-<<<<<<< refs/remotes/origin/kulkarni
-    df = pd.read_csv(request.files.get('myfile'))
-=======
-=======
->>>>>>> local
-    print(pd.__version__)
-    try:
-        df = pd.read_csv(request.files.get('myfile'),encoding='utf-16',sep='\t')
-    except:
-        df=pd.DataFrame()
-        df = pd.read_csv(request.files.get('myfile'),sep=',')   
-<<<<<<< refs/remotes/origin/kulkarni
->>>>>>> local
-=======
->>>>>>> local
+    df = pd.read_csv(request.files.get('myfile'),encoding='utf-16',sep='\t')
     print(df)
     date = str(df['Timestamp'][0]).split()[0][:-1]
     df1 = df.sort_values(['Full Name','Timestamp'])
@@ -215,7 +192,6 @@ def download():
                 print("Logging in")
     except:
         print("Sorry you are not a authorised user")
-<<<<<<< refs/remotes/origin/kulkarni
     newName = input("Enter Your New UserName :")
     newPassword = input("Enter Your New Password :")
     subName = input("Subject name :")
@@ -227,24 +203,12 @@ def download():
     wks0.update_acell("D"+str(x.row),email)
     newEmail = wks0.get("D"+str(wks0.find(newName).row))[0][0]
     currentSubject = wks0.get("C"+str(wks0.find(newName).row))[0][0]
-=======
-    subName = input("Subject name :")
-    email = input("Enter your email which can access Google Sheets:")
-    x = wks0.find(Name)
-    wks0.update_acell("C"+str(x.row),subName)
-    wks0.update_acell("D"+str(x.row),email)
-    newEmail = wks0.get("D"+str(wks0.find(Name).row))[0][0]
-    currentSubject = wks0.get("C"+str(wks0.find(Name).row))[0][0]
->>>>>>> local
     newsheet = gs.oauth()
     s1 = newsheet.create(currentSubject)
     newsheet.insert_permission(s1.id ,'attendance@skn-hackclub.iam.gserviceaccount.com',perm_type='user',role='writer')
     newsheet.insert_permission(s1.id ,newEmail,perm_type='user',role='writer') 
-<<<<<<< refs/remotes/origin/kulkarni
        
-=======
 
->>>>>>> local
     return render_template('download.html')
 
 

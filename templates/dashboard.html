@@ -52,14 +52,14 @@
         <div class="columns is-mobile is-centered mt-6 pt-6">
             <div class="column is-half">
                 <p class="title is-3">upload your CSV</p>
-                <form action="/upload" method="POST">
+                <form action="/upload" method="POST" enctype="multipart/form-data">
                   
-                   <label for="myfile">Select files:</label>
-                    <input type="file" id="myfile" name="myfile" multiple><br><br>
-                  <div class="control mt-5">
-                    <button class="button is-primary ">Submit</button>
-                  </div>
-                </form>
+                  <label for="myfile">Select files:</label>
+                   <input type="file" id="myfile" name="myfile" multiple><br><br>
+                 <div class="control mt-5">
+                   <input type="submit" value="Upload it " class="button is-primary "></input>
+                 </div>
+               </form>
             </div>
         </div>
       </section>
