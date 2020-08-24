@@ -102,7 +102,8 @@ def download():
     #filename=request.form['myfile']
     print(request.form)
     print(request.files.get('myfile'))
-    df = pd.read_csv(request.files.get('myfile'),encoding='utf-16',sep='\t')
+    df = pd.read_csv(request.files.get('myfile'),encoding='utf-16',delimiter='\t')
+
     print(df)
     date = str(df['Timestamp'][0]).split()[0][:-1]
     df1 = df.sort_values(['Full Name','Timestamp'])
