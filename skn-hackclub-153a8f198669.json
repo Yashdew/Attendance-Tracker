@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "skn-hackclub",
+  "private_key_id": "153a8f198669feaedf3df1613fd7766d55ed72d6",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCwVwqGl5ngqF2N\nIYeERwWjKdTL3g9OsrYOe6Wgjl/5nnPCnrB+M7yiH7fSkobf29XS14L1+UZomfpI\nse118ep1GraivKPcXtMCHdGeqDgIe7kUuDmN6/Gd/aPx/O7ex1kyqQ50Z00U6wxp\noJtjqQVuRZX6J0WR/FrNjGsCwzgtwA43za177PhBcTHk7PUMr9sNNhXb8uxooqbz\nBjhIcjKzoc8j/ONoVbYheq+bKKWtnNVhtplVD3Wd/kt0yORc/0UKdYWkcbkl2Gar\n32cHrjWGrvy09TafdZqzW5KXovdoowrO6JdO/xF94lCJ/6WuhWgPC0sNkfJXyTp9\n4JG3PyKNAgMBAAECggEAHjzuuyGn61Qzpo3HVTFwkAgOS18qtM4EVftx7VQ8tOss\n4oSfsyRgBlT2Co/BvQVPZzY5aMB0CF/PAUQxefYfxDDufH1og9Nmz4gZd+FUqm+8\nzwbAJ8v7xKHHySkcNOtuKje/GMrV9u5PVJWLz80d90jLbPfrABuL3o9jkjeznHR3\nPlVDUqCI4J438pV3AhG/2FHeroHH0d1Ncg3A6r5ywzQq5XNgjCst/JAjwLVBF8le\nkbJwg9bblLHz3/nkzkCtQ74cylGBf3yxcHTD/a9Z0DSfH+turQGowszvecn3C6Us\nUP3qOdmbz9Dnr1tekuEqiLcbjmzZg7EnF2DnJxboaQKBgQDrDSEKLKdu3ZZ6pG+4\nqeSxPWC4tP3EBMqYFElQCpKeablkfXu8j17BMSVLd3topzmeAKEwJLG5Xdzx9G2o\no1Q1bkFAVJQVYyKY2z+NIdmdrT2AMmluFQY//0ZKewstgt+KrxQ6qtuh19cp9uT+\nepoLSghJglrN5QqPLq6K9BsdGwKBgQDADl7IwyIaPmEapRkyMO8cpL2PE7iOUK7u\n8odxjB0kQ+saM15vbzoQDX0oWIDG0cFs+o0jEPG5+5LTa7kdMmnI8ACvXXs8Ipvn\nqqsjyQ08PSnhuzWpdYPz3V39GpndiumihKXc/PvOkAWakE0LM2DrdxzgtLYHDMRY\npuXiUI6BdwKBgQC5rc5q1imR59PmoB1tWDBDXwQYBUnt3gcYqfXcF+4I2+XLH2Fu\n7CbjIGqgugsv+eIHEeJDQMlwcFiIfhlePV/ZMXa0VdwBJSYAcDo8x/+7kk3iBnDI\nuC0Owx6I2bhTxG3IhVPKoIwNxo6/JL1y1fD4eAwh3arTuVplD3Bsbjc4/wKBgGXD\nt4mdi+ZoA0ABF1a3AxwkVqUHiBUwv2Cxdf8+hPqAWoTpjzJwt01mOFk2fBXdcyZx\npHNeOReZK/WG8PF9kvv74AEMAY6dsAqTLlep4q92oUiQ0CBYunBvbav9emYfgyiw\nLMrp6etL+QwrRgeXU9WwqcaPOpyFsUxgMxM2KCyFAoGAF5KfVA8ARjxU65or1tSC\nO0ckdQiaLhlwaj2opKQVtt9n8BMBeeQoji7cn93os2gTLEtWkExhwLJYZW+Pf/9b\nXprVYIK+CP+DaE9iMOA1mmee77oZNYo2ou0Lqj/jNzS9k2YHkzUYb6gr9T6WnKc5\nZ1p/e+dHKn5yyhOWc9vDDjE=\n-----END PRIVATE KEY-----\n",
+  "client_email": "attendance@skn-hackclub.iam.gserviceaccount.com",
+  "client_id": "100137453168613937454",
+"auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/attendance%40skn-hackclub.iam.gserviceaccount.com"
+}
