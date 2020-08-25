@@ -48,3 +48,41 @@ if __name__ == '__main__':
     data = df.to_dict('records')
     mycol1.insert_many(data)
     return render_template('download.html')
+
+
+    """Period5":{
+                                            "Dept":none,
+                                            "Subject":none,
+                                            "Div":none
+
+                            },
+                            "Period6":{
+                                            "Dept":none,
+                                            "Subject":none,
+                                            "Div":none
+
+                            },
+                            "Period7":{
+                                            "Dept":none,
+                                            "Subject":none,
+                                            "Div":none
+
+                            },
+                            "Period8":{
+                                            "Dept":none,
+                                            "Subject":none,
+                                            "Div":none
+
+                            },
+                            "Period9":{
+                                            "Dept":none,
+                                            "Subject":none,
+                                            "Div":none
+
+                            },
+                            "Period10":{
+                                            "Dept":none,
+                                            "Subject":none,
+                                            "Div":none
+
+                            }"""

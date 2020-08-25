@@ -14,20 +14,19 @@ import numpy as np
 
 
 spreadsheetid = "1l4edR5UL8Ayg9AYtLjlMspdHdMjCeQ8P8RvKBMbEcH0"
-UPLOAD_FOLDER = './path/to/the/uploads'
-ALLOWED_EXTENSIONS = {'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif','csv'} 
+
 spreadsheetid = "1l4edR5UL8Ayg9AYtLjlMspdHdMjCeQ8P8RvKBMbEcH0"
 
 
 app = Flask(__name__)
 
-app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+
 
 myclient = pymongo.MongoClient("mongodb+srv://yashdew:5kAa9bRquer0cRtq@cluster0.c6ung.mongodb.net/yashdew?retryWrites=true&w=majority")
 
                                                  
-mydb = myclient["Yashdb"]
-mycol = mydb["Yashdb"]
+mydb = myclient["Yashdb1"]
+mycol = mydb["Yashdb1"]
 
 mydb1 = myclient["app"]
 mycol1 = mydb["users1"]
@@ -44,37 +43,95 @@ def register_page():
 
 @app.route('/register', methods=['POST'])
 def register():
-    valid = True
-    if request.form['Email'] == "":
-        valid = False
-        flash("Email cannot be empty")
-        return redirect("/signup")
-    if request.form['Password'] == "":
-        valid = False
-        flash("Password cannot be empty")
-        return redirect("/signup")
-    if request.form['Name'] == "":
-        valid = False
-        flash("Name cannot be empty")
-        return redirect("/signup")
-    if request.form['Password'] != request.form['CPassword']:
-        valid = False
-        flash("Your passwords need to match")
-        return redirect("/signup")
-    if not valid:
-        return redirect("/signup")
-    else:
-        record = {
-                "_id": request.form['ID'],
-                "name":  request.form['Name'], 
-                "username": request.form['Username'],
-                "email":  request.form['Email'],
-                "password":  request.form['Password']
+    none="none"
+    try:
+        if(request.form['Email']!='' or request.form['Name']!='' or request.form['Password']!='' or request.form['CPassword']!=''):
+            if(request.form['Password']==request.form['CPassword']):
+                if(request.form['SID']=='0000'):
+                    record = {
+                                "Email": request.form['Email'],
+                                "Name":  request.form['Name'], 
+                                "Password":  request.form['Password'],
+                                "CPassword":  request.form['CPassword'],
+                                "SID": request.form['SID'],
+                                "Period1":{
+                                                "Dept":none,
+                                                
+                                                "Subject":none,
+                                                "Div":none
 
-            }
-        mycol.insert_one(record)
-        
-        return render_template('check.html')  
+                                },
+                                "Period2":{
+                                                "Dept":none,
+                                                "Year":none,
+                                                "Subject":none,
+                                                "Div":none
+
+                                },
+                                "Period3":{
+                                                "Dept":none,
+                                                "Year":none,
+                                                "Subject":none,
+                                                "Div":none
+
+                                },
+                                "Period4":{
+                                                "Dept":none,
+                                                "Year":none,
+                                                "Subject":none,
+                                                "Div":none
+
+                                },
+                                "Period5":{
+                                                "Dept":none,
+                                                "Year":none,
+                                                "Subject":none,
+                                                "Div":none
+
+                                },
+                                "Period6":{
+                                                "Dept":none,
+                                                "Year":none,
+                                                "Subject":none,
+                                                "Div":none
+
+                                },
+                                "Period7":{
+                                                "Dept":none,
+                                                "Year":none,
+                                                "Subject":none,
+                                                "Div":none
+
+                                },
+                                "Period8":{
+                                                "Dept":none,
+                                                "Year":none,
+                                                "Subject":none,
+                                                "Div":none
+
+                                },
+                                "Period9":{
+                                                "Dept":none,
+                                                "Year":none,
+                                                "Subject":none,
+                                                "Div":none
+
+                                },
+                                "Period10":{
+                                                "Dept":none,
+                                                "Year":none,
+                                                "Subject":none,
+                                                "Div":none
+
+                                }
+                                
+
+                    }
+                    mycol.insert_one(record)
+                    return render_template('check.html')  
+    except:
+        print("Something went wrong") 
+
 
 @app.route('/login')
 def check1():
