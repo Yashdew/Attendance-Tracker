@@ -56,7 +56,7 @@ def register():
                                 "SID": request.form['SID'],
                                 "Period1":{
                                                 "Dept":none,
-                                                
+                                                "Year":none,
                                                 "Subject":none,
                                                 "Div":none
 
@@ -139,16 +139,26 @@ def check1():
 
 @app.route('/check', methods=['POST'])
 def check():
-    print(request.form['email'])
+    print(request.form['Email'])
     for x in mycol.find():
        # print(x['email'])
-        if x['email']==request.form['email'] and x['password']==request.form['Password']:
-            #print(request.form['email'])
-            name=x['name']
-            username=x['username']
-            email=x['email']
-          
-    return render_template('checkstatus.html',name=name,username=username,email=email)  
+        if x['Email']==request.form['Email'] and x['Password']==request.form['Password']:
+            record=x
+            #print(record)
+            if(request.form['MName']!='' or request.form['NPassword']!='' or request.form['NEmail']!=''):
+                #print(record)
+                newrecord={"$set":{"Email":request.form['NEmail'],"Name":request.form['MName'],"Password":request.form['NPassword'],"CPassword":request.form['NPassword'],"Period1":{
+                            "Dept":request.form['Department'],
+                            "Year":request.form['Year'],
+                            "Subject":request.form['Subject'],
+                            "Div":request.form['Div'],
+                            
+                        }}}
+                
+                mycol.update_many({"_id":record['_id']},newrecord)
+            
+        
+    return render_template('checkstatus.html')  
 
 @app.route('/dashboard')
 def dashboard():
