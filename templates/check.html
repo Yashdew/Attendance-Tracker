@@ -42,6 +42,9 @@
                 <form action = "/signup" method="GET">
                     <button class="button">Login</button>
                 </form>
+                <form action = "/mainlogin" method="GET">
+                  <button class="button">Main Login</button>
+                </form>
               </div>
             </div>
           </div>
@@ -61,7 +64,7 @@
                     </div>
                     <div class="field">
                       <label class="label">Password</label>
-                        <div class="control has-icons-left has-icons-right">
+                        <div class="control ">
                             <input class="input " name="Password" type="password" placeholder="password" value="" required>
                         </div>
                     </div>
@@ -83,7 +86,7 @@
                   <div class="field">
                     <label class="label">New Email</label>
                         <div class="control">
-                            <input class="input" name="NEmail" type="email" required>
+                            <input class="input" name="NEmail" type="email" placeholder="New Email" required>
                         </div>
                   </div>
                   
@@ -96,7 +99,19 @@
               
                   
                   <div class="field  is-grouped has-text-left ">
-                   
+                    <div class="control">
+                      <label class="label">College</label>
+                      <div class="select">
+                        <select required name="College" id="myselect">
+                          <option required>none</option>
+                          <option required>SKNCOE</option>
+                          <option required>SCOE</option>
+                          <option required>NBNCOE</option>
+                         
+                        </select>
+                      </div>
+                    </div>
+
                     <div class="control">
                       <label class="label">Department</label>
                       <div class="select">
@@ -151,12 +166,24 @@
 
                   </div>  
 
-                  <!--<div class="field  is-grouped has-text-left">
-                   
+                  <div class="field  is-grouped has-text-left ">
+                    <div class="control">
+                      <label class="label">College</label>
+                      <div class="select">
+                        <select required name="College1" id="myselect">
+                          <option required>none</option>
+                          <option required>SKNCOE</option>
+                          <option required>SCOE</option>
+                          <option required>NBN COE</option>
+                          <option required>ENTC</option>
+                        </select>
+                      </div>
+                    </div>
+
                     <div class="control">
                       <label class="label">Department</label>
                       <div class="select">
-                        <select required name="Department" id="myselect">
+                        <select required name="Department1" id="myselect">
                           <option required>none</option>
                           <option required>IT</option>
                           <option required>COMP</option>
@@ -169,7 +196,7 @@
                     <div class="control">
                       <label class="label">Year</label>
                       <div class="select">
-                        <select required name="Year" id="myselect">
+                        <select required name="Year1" id="myselect">
                           <option required>none</option>
                           <option required>FE</option>
                           <option required>SE</option>
@@ -182,7 +209,7 @@
                     <div class="control">
                       <label class="label">Subject</label>
                       <div class="select">
-                        <select required name="Subject" id="myselect">
+                        <select required name="Subject1" id="myselect">
                           <option required>none</option>
                           <option required>DBMS</option>
                           <option required>OS</option>
@@ -195,7 +222,7 @@
                     <div class="control">
                       <label class="label">Divison</label>
                       <div class="select">
-                        <select required name="Div" id="myselect">
+                        <select required name="DivA" id="myselect">
                           <option required>none</option>
                           <option required>DIV 1</option>
                           <option required>DIV 2</option>
@@ -206,12 +233,25 @@
                     </div>
 
                   </div> 
-                  <div class="field  is-grouped has-text-left">
-                   
+
+                  <div class="field  is-grouped has-text-left ">
+                    <div class="control">
+                      <label class="label">College</label>
+                      <div class="select">
+                        <select required name="College2" id="myselect">
+                          <option required>none</option>
+                          <option required>SKNCOE</option>
+                          <option required>SCOE</option>
+                          <option required>NBN COE</option>
+                          <option required>ENTC</option>
+                        </select>
+                      </div>
+                    </div>
+
                     <div class="control">
                       <label class="label">Department</label>
                       <div class="select">
-                        <select required name="Department" id="myselect">
+                        <select required name="Department2" id="myselect">
                           <option required>none</option>
                           <option required>IT</option>
                           <option required>COMP</option>
@@ -224,7 +264,7 @@
                     <div class="control">
                       <label class="label">Year</label>
                       <div class="select">
-                        <select required name="Year" id="myselect">
+                        <select required name="Year2" id="myselect">
                           <option required>none</option>
                           <option required>FE</option>
                           <option required>SE</option>
@@ -237,7 +277,7 @@
                     <div class="control">
                       <label class="label">Subject</label>
                       <div class="select">
-                        <select required name="Subject" id="myselect">
+                        <select required name="Subject2" id="myselect">
                           <option required>none</option>
                           <option required>DBMS</option>
                           <option required>OS</option>
@@ -250,7 +290,7 @@
                     <div class="control">
                       <label class="label">Divison</label>
                       <div class="select">
-                        <select required name="Div" id="myselect">
+                        <select required name="DivB" id="myselect">
                           <option required>none</option>
                           <option required>DIV 1</option>
                           <option required>DIV 2</option>
@@ -260,13 +300,26 @@
                       </div>
                     </div>
 
-                  </div> 
-                  <div class="field  is-grouped has-text-left">
-                   
+                  </div>
+
+                  <div class="field  is-grouped has-text-left ">
+                    <div class="control">
+                      <label class="label">College</label>
+                      <div class="select">
+                        <select required name="College3" id="myselect">
+                          <option required>none</option>
+                          <option required>SKNCOE</option>
+                          <option required>SCOE</option>
+                          <option required>NBN COE</option>
+                          <option required>ENTC</option>
+                        </select>
+                      </div>
+                    </div>
+
                     <div class="control">
                       <label class="label">Department</label>
                       <div class="select">
-                        <select required name="Department" id="myselect">
+                        <select required name="Department3" id="myselect">
                           <option required>none</option>
                           <option required>IT</option>
                           <option required>COMP</option>
@@ -279,7 +332,7 @@
                     <div class="control">
                       <label class="label">Year</label>
                       <div class="select">
-                        <select required name="Year" id="myselect">
+                        <select required name="Year3" id="myselect">
                           <option required>none</option>
                           <option required>FE</option>
                           <option required>SE</option>
@@ -292,7 +345,7 @@
                     <div class="control">
                       <label class="label">Subject</label>
                       <div class="select">
-                        <select required name="Subject" id="myselect">
+                        <select required name="Subject3" id="myselect">
                           <option required>none</option>
                           <option required>DBMS</option>
                           <option required>OS</option>
@@ -305,7 +358,7 @@
                     <div class="control">
                       <label class="label">Divison</label>
                       <div class="select">
-                        <select required name="Div" id="myselect">
+                        <select required name="DivC" id="myselect">
                           <option required>none</option>
                           <option required>DIV 1</option>
                           <option required>DIV 2</option>
@@ -315,19 +368,8 @@
                       </div>
                     </div>
 
-                  </div>-->
-                  <!--<div class="control">
-                    <label class="label">Divison</label>
-                    <div class="select">
-                      <select name="Div" id="myselect">
-                        <option >none</option>
-                        <option >DIV 1</option>
-                        <option >DIV 2</option>
-                        <option >DIV 1 & DIV 2</option>
-                        <option >SEMP</option>
-                      </select>
-                    </div>
-                  </div>-->
+                  </div>
+
                   <div class="field is-grouped">
                     <div class="control">
                     <button class="button is-link" id="btnSubmit">Submit</button>
