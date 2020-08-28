@@ -43,7 +43,7 @@
                     <button class="button">Login</button>
                 </form>
                 <form action = "/mainlogin" method="GET">
-                  <button class="button">Main Login</button>
+                    <button class="button" >Main Login</button>
                 </form>
               </div>
             </div>
@@ -54,38 +54,23 @@
       <section>
         <div class="columns is-mobile is-centered mt-6 pt-6">
           <div class="column is-half">
-                      <form  action = "/register" method="POST">
-                        <h1 class="title is-3 has-text-danger has-text-centered" >This feature is only for admin user</h1>
+                      <form  action = "/maincheck" method="POST">
+                        
                           <div class="field">
                             <label class="label">Email</label>
                             <div class="control ">
                                 <input class="input " name="Email" type="email" placeholder="Email" required>
                             </div>
                           </div>
-                          <div class="field">
-                            <label class="label">Name</label>
-                            <div class="control">
-                                <input class="input" name="Name" type="text" placeholder="Name" required>
-                            </div>
-                          </div>
+                          
                           <div class="field">
                             <label class="label">Password</label>
                             <div class="control ">
                                 <input class="input" id="txtPassword" name="Password" type="password" placeholder="Password" value="" required>
                             </div>
                           </div>
-                          <div class="field">
-                            <label class="label">Confirm Password</label>
-                            <div class="control ">
-                                <input class="input" id="txtConfirmPassword" name="CPassword" type="Password" placeholder="Confirm Password" value="" required>
-                            </div>
-                          </div>
-                          <div class="field">
-                            <label class="label">Secret ID</label>
-                            <div class="control ">
-                                <input class="input" id="SecretID" name="SID" type="Password" placeholder="Secret ID" value="" required>
-                            </div>
-                          </div>
+                          
+                          
                           <!--<div class="field">
                                   <label class="label">ID</label>
                                   <div class="control">
@@ -100,30 +85,27 @@
                           </div>-->
                           <div class="field is-grouped">
                               <div class="control">
-                              <button class="button is-link" id="btnSubmit">Submit</button>
+                              <button class="button is-link" id="btnSubmit" >Submit</button>
                               </div>
                           </div>
                       </form>
+                      <h1>hello</h1>
+                      <form action = "/forgetpassword"  method="GET">
+                        <div class="field is-grouped is-spaced">
+                          <div class="control">
+                            <button class="button is-link" id="btnSubmit">forget password</button>
+                          </div>
+                        </div>
+                      </form>
+                      
+
           </div>
+          
         </div>
       </section>
       
         
     
 </body>
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-<script type="text/javascript">
-    $(function () {
-        $("#btnSubmit").click(function () {
-            var password = $("#txtPassword").val();
-            var confirmPassword = $("#txtConfirmPassword").val();
-            var sid = $("#SecretID").val();
-            if (password != confirmPassword || sid!="0000") {
-                alert("Passwords or secret ID do not match.");
-                return false;
-            }
-            return true;
-        });
-    });
-</script>
+
 </html>

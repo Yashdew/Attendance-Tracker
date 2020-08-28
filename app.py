@@ -36,9 +36,10 @@ def index():
     return render_template('index.html')
     
 
-@app.route('/signup')
+@app.route('/signup',methods=['GET'])
 def register_page():
-  return render_template('signup.html')
+    ishwar_tu_chutiya_hain='i$hw@rW@D@rch0d'
+    return render_template('signup.html',ishwar_tu_chutiya_hain=ishwar_tu_chutiya_hain)
   
 
 @app.route('/register', methods=['POST'])
@@ -55,6 +56,7 @@ def register():
                                 "CPassword":  request.form['CPassword'],
                                 "SID": request.form['SID'],
                                 "Period1":{
+                                                "College":none,
                                                 "Dept":none,
                                                 "Year":none,
                                                 "Subject":none,
@@ -62,6 +64,7 @@ def register():
 
                                 },
                                 "Period2":{
+                                                "College":none,
                                                 "Dept":none,
                                                 "Year":none,
                                                 "Subject":none,
@@ -69,6 +72,7 @@ def register():
 
                                 },
                                 "Period3":{
+                                                "College":none,
                                                 "Dept":none,
                                                 "Year":none,
                                                 "Subject":none,
@@ -76,6 +80,7 @@ def register():
 
                                 },
                                 "Period4":{
+                                                "College":none,
                                                 "Dept":none,
                                                 "Year":none,
                                                 "Subject":none,
@@ -83,6 +88,7 @@ def register():
 
                                 },
                                 "Period5":{
+                                                "College":none,
                                                 "Dept":none,
                                                 "Year":none,
                                                 "Subject":none,
@@ -90,6 +96,7 @@ def register():
 
                                 },
                                 "Period6":{
+                                                "College":none,
                                                 "Dept":none,
                                                 "Year":none,
                                                 "Subject":none,
@@ -97,6 +104,7 @@ def register():
 
                                 },
                                 "Period7":{
+                                                "College":none,
                                                 "Dept":none,
                                                 "Year":none,
                                                 "Subject":none,
@@ -104,6 +112,7 @@ def register():
 
                                 },
                                 "Period8":{
+                                                "College":none,
                                                 "Dept":none,
                                                 "Year":none,
                                                 "Subject":none,
@@ -111,6 +120,7 @@ def register():
 
                                 },
                                 "Period9":{
+                                                "College":none,
                                                 "Dept":none,
                                                 "Year":none,
                                                 "Subject":none,
@@ -118,6 +128,7 @@ def register():
 
                                 },
                                 "Period10":{
+                                                "College":none,
                                                 "Dept":none,
                                                 "Year":none,
                                                 "Subject":none,
@@ -128,7 +139,7 @@ def register():
 
                     }
                     mycol.insert_one(record)
-                    return render_template('check.html')  
+                    return render_template('mainlogin.html')  
     except:
         print("Something went wrong") 
 
@@ -141,30 +152,142 @@ def check1():
 def check():
     print(request.form['Email'])
     for x in mycol.find():
-       # print(x['email'])
+        
         if x['Email']==request.form['Email'] and x['Password']==request.form['Password']:
             record=x
-            #print(record)
+           
             if(request.form['MName']!='' or request.form['NPassword']!='' or request.form['NEmail']!=''):
-                #print(record)
-                newrecord={"$set":{"Email":request.form['NEmail'],"Name":request.form['MName'],"Password":request.form['NPassword'],"CPassword":request.form['NPassword'],"Period1":{
-                            "Dept":request.form['Department'],
-                            "Year":request.form['Year'],
-                            "Subject":request.form['Subject'],
-                            "Div":request.form['Div'],
+               
+                newrecord={"$set":{"Email":request.form['NEmail'],
+                                   "Name":request.form['MName'],
+                                   "Password":request.form['NPassword'],
+                                   "CPassword":request.form['NPassword'],
+                                   "Period1":{
+                                                "College":request.form['College'],
+                                                "Dept":request.form['Department'],
+                                                "Year":request.form['Year'],
+                                                "Subject":request.form['Subject'],
+                                                "Div":request.form['Div'],
                             
-                        }}}
-                
+                                    },
+                                    "Period2":{
+                                                "College":request.form['College1'],
+                                                "Dept":request.form['Department1'],
+                                                "Year":request.form['Year1'],
+                                                "Subject":request.form['Subject1'],
+                                                "Div":request.form['DivA'],
+                            
+                                    },
+                                    "Period3":{
+                                                "College":request.form['College2'],
+                                                "Dept":request.form['Department2'],
+                                                "Year":request.form['Year2'],
+                                                "Subject":request.form['Subject2'],
+                                                "Div":request.form['DivB'],
+                            
+                                    },
+                                    "Period4":{
+                                                "College":request.form['College3'],
+                                                "Dept":request.form['Department3'],
+                                                "Year":request.form['Year3'],
+                                                "Subject":request.form['Subject3'],
+                                                "Div":request.form['DivC'],
+                            
+                                    }
+                            }
+                }
+                """newrecord={"$set":{"Email":request.form['NEmail'],
+                                   "Name":request.form['MName'],
+                                   "Password":request.form['NPassword'],
+                                   "CPassword":request.form['NPassword'],
+                                   "Period1":{
+                                                "College":request.form['College'],
+                                                "Dept":request.form['Department'],
+                                                "Year":request.form['Year'],
+                                                "Subject":request.form['Subject'],
+                                                "Div":request.form['Div'],
+                            
+                            },
+                                    "Period2":{
+                                                "College":request.form['College1'],
+                                                "Dept":request.form['Department1'],
+                                                "Year":request.form['Year1'],
+                                                "Subject":request.form['Subject1'],
+                                                "Div":request.form['DivA'],
+                            
+                            },
+                                    "Period2":{
+                                                "College":request.form['College2'],
+                                                "Dept":request.form['Department2'],
+                                                "Year":request.form['Year2'],
+                                                "Subject":request.form['Subject2'],
+                                                "Div":request.form['DivB'],
+                            
+                            },
+                                    "Period3":{
+                                                "College":request.form['College3'],
+                                                "Dept":request.form['Department3'],
+                                                "Year":request.form['Year3'],
+                                                "Subject":request.form['Subject3'],
+                                                "Div":request.form['DivC'],
+                            
+                            },
+                        }
+                    }"""
+               
                 mycol.update_many({"_id":record['_id']},newrecord)
+                
             
-        
-    return render_template('checkstatus.html')  
+      
+    return render_template('mainlogin.html')  
+######## Main Login
+@app.route('/mainlogin')
+def register_page_main():
+  return render_template('mainlogin.html')
 
-@app.route('/dashboard')
+@app.route('/maincheck', methods=['GET','POST'])  ###GET for name
+def checkmain():
+    for x in mycol.find():
+        if x['Email']==request.form['Email'] and x['Password']==request.form['Password']:
+            name=x['Name']
+            email=x['Email']
+            
+
+            return render_template('checkstatus.html',name=name,email=email) 
+#############   
+
+##################### Forget Password
+@app.route('/forgetpassword')
+def forget():
+    return render_template('forget.html')
+
+@app.route('/OTPforpassword',methods=['GET','POST'])
+def forgetpassword():
+    for x in mycol.find():
+        if x['Email']==request.form['Email']:
+            email=x['Email']
+            name=x['Name']
+            return render_template('OTP.html',email=email,name=name)
+        else:
+            redirect('forget.html')
+###################
+"""@app.route('/mainlogin',methods=['GET','POST'])
+def forgetpassword():
+    for x in mycol.find():
+        if x['Email']==request.form['Email']:
+            email=x['Email']
+            name=x['Name']
+            return render_template('OTP.html',email=email,name=name)
+        else:
+            redirect('forget.html')"""
+
+
+@app.route('/upload',methods=['GET','POST'])
 def dashboard():
-    return render_template('dashboard.html') 
+    
+    return render_template('upload.html') 
 
-@app.route('/upload', methods=['POST'])
+@app.route('/uploadfile', methods=['POST'])
 def download():
     #filename=request.form['myfile']
     print(request.form)

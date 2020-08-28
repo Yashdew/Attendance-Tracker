@@ -15,7 +15,7 @@
 <body>
     <nav class="navbar is-transparent">
         <div class="navbar-brand">
-          <a class="navbar-item" href="https://bulma.io">
+          <a class="navbar-item" href="#">
             <img src="https://bulma.io/images/bulma-logo.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28">
           </a>
           <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
@@ -30,8 +30,8 @@
             <a class="navbar-item" href="#">
               Home
             </a>
-           
-        </div>
+            
+          </div>
       
           <div class="navbar-end">
             <div class="navbar-item">
@@ -39,39 +39,41 @@
                 <form action = "/signup" method="GET">
                     <button class="button">signup</button>
                 </form>    
-                <form action = "/login" method="GET">
+                <form action = "/signup" method="GET">
                     <button class="button">Login</button>
                 </form>
               </div>
             </div>
-          </div>
+          </div>-->
         </div>
       </nav>
+
 
       <section>
         <div class="columns is-mobile is-centered mt-6 pt-6">
             <div class="column is-half">
-                <p class="title is-3">upload your CSV</p>
-                <form action="/upload" method="POST" enctype="multipart/form-data">
-                  
-                  <label for="myfile">Select files:</label>
-                   <input type="file" id="myfile" name="myfile" multiple><br><br>
-                 <div class="control mt-5">
-                   <input type="submit" value="Upload it " class="button is-primary "></input>
-                 </div>
-               </form>
-            </div>
+               <form action = "/check" method="POST">
+                    <div class="field">
+                        <label class="label">Email</label>
+                            <div class="control">
+                                <input class="input" name="Email" type="email" placeholder="Email" required>
+                            </div>
+                    </div>
+                    <div class="field">
+                      <label class="label">Password</label>
+                        <div class="control ">
+                            <input class="input " name="Password" type="password" placeholder="password" value="" required>
+                        </div>
+                    </div>
+                    <div class="field is-grouped">
+                    <div class="control">
+                      <button class="button is-link" id="btnSubmit">Submit</button>
+                    </div>
+                  </div>
+              </form>
+                
+            </div>  
         </div>
       </section>
-      
-        
-      <script>
-        $('#i_file').change( function(event) {
-    var tmppath = URL.createObjectURL(event.target.files[0]);
-    $("img").fadeIn("fast").attr('src',URL.createObjectURL(event.target.files[0]));
-
-    $("#disp_tmp_path").html("Temporary Path(Copy it and try pasting it in browser address bar) --> <strong>["+tmppath+"]</strong>");
-});
-        </script>   
 </body>
 </html>
