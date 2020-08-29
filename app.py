@@ -8,6 +8,7 @@ import time
 import datetime
 import math
 import gspread as gs
+from werkzeug.security import generate_password_hash,check_password_hash
 from df2gspread import df2gspread as d2g
 from oauth2client.service_account import ServiceAccountCredentials
 import numpy as np
@@ -39,21 +40,25 @@ def index():
 @app.route('/signup',methods=['GET'])
 def register_page():
     ishwar_tu_chutiya_hain='i$hw@rW@D@rch0d'
-    return render_template('signup.html',ishwar_tu_chutiya_hain=ishwar_tu_chutiya_hain)
+    return render_template('signup.html')
   
 
-@app.route('/register', methods=['POST'])
+@app.route('/mainlogin', methods=['POST'])
 def register():
+    password=generate_password_hash(request.form['Password'])
+    
+
     none="none"
+    
     try:
         if(request.form['Email']!='' or request.form['Name']!='' or request.form['Password']!='' or request.form['CPassword']!=''):
             if(request.form['Password']==request.form['CPassword']):
                 if(request.form['SID']=='0000'):
+                    
                     record = {
                                 "Email": request.form['Email'],
                                 "Name":  request.form['Name'], 
-                                "Password":  request.form['Password'],
-                                "CPassword":  request.form['CPassword'],
+                                "Password":  password,
                                 "SID": request.form['SID'],
                                 "Period1":{
                                                 "College":none,
@@ -138,7 +143,9 @@ def register():
                                 
 
                     }
+                    
                     mycol.insert_one(record)
+                    
                     return render_template('mainlogin.html')  
     except:
         print("Something went wrong") 
@@ -150,18 +157,20 @@ def check1():
 
 @app.route('/check', methods=['POST'])
 def check():
+    password=generate_password_hash(request.form['Password'])
+    newpassword=generate_password_hash(request.form['NPassword'])
     print(request.form['Email'])
     for x in mycol.find():
         
-        if x['Email']==request.form['Email'] and x['Password']==request.form['Password']:
+        if x['Email']==request.form['Email'] and check_password_hash(x['Password'],request.form['Password']):
             record=x
            
             if(request.form['MName']!='' or request.form['NPassword']!='' or request.form['NEmail']!=''):
-               
+                
                 newrecord={"$set":{"Email":request.form['NEmail'],
                                    "Name":request.form['MName'],
-                                   "Password":request.form['NPassword'],
-                                   "CPassword":request.form['NPassword'],
+                                   "Password":newpassword,
+                                   
                                    "Period1":{
                                                 "College":request.form['College'],
                                                 "Dept":request.form['Department'],
@@ -196,44 +205,7 @@ def check():
                                     }
                             }
                 }
-                """newrecord={"$set":{"Email":request.form['NEmail'],
-                                   "Name":request.form['MName'],
-                                   "Password":request.form['NPassword'],
-                                   "CPassword":request.form['NPassword'],
-                                   "Period1":{
-                                                "College":request.form['College'],
-                                                "Dept":request.form['Department'],
-                                                "Year":request.form['Year'],
-                                                "Subject":request.form['Subject'],
-                                                "Div":request.form['Div'],
-                            
-                            },
-                                    "Period2":{
-                                                "College":request.form['College1'],
-                                                "Dept":request.form['Department1'],
-                                                "Year":request.form['Year1'],
-                                                "Subject":request.form['Subject1'],
-                                                "Div":request.form['DivA'],
-                            
-                            },
-                                    "Period2":{
-                                                "College":request.form['College2'],
-                                                "Dept":request.form['Department2'],
-                                                "Year":request.form['Year2'],
-                                                "Subject":request.form['Subject2'],
-                                                "Div":request.form['DivB'],
-                            
-                            },
-                                    "Period3":{
-                                                "College":request.form['College3'],
-                                                "Dept":request.form['Department3'],
-                                                "Year":request.form['Year3'],
-                                                "Subject":request.form['Subject3'],
-                                                "Div":request.form['DivC'],
-                            
-                            },
-                        }
-                    }"""
+               
                
                 mycol.update_many({"_id":record['_id']},newrecord)
                 
@@ -247,8 +219,9 @@ def register_page_main():
 
 @app.route('/maincheck', methods=['GET','POST'])  ###GET for name
 def checkmain():
+    password=generate_password_hash(request.form['Password'])
     for x in mycol.find():
-        if x['Email']==request.form['Email'] and x['Password']==request.form['Password']:
+        if x['Email']==request.form['Email'] and check_password_hash(x['Password'],request.form['Password']):
             name=x['Name']
             email=x['Email']
             
