@@ -14,7 +14,7 @@ record = {
             "Name":  'yash', 
             "Password":  password,
             "CPassword":  password,
-            "SID": "0000",
+            "SID": "00001",
 }
 mycol.insert_one(record)
 for x in mycol.find():
