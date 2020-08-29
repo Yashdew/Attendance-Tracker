@@ -1,18 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script
-      src="https://kit.fontawesome.com/df67bacc25.js"
-      crossorigin="anonymous"
-    ></script>
-    
-    <!--<link rel="stylesheet" href="css/main.css"/>-->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://kit.fontawesome.com/df67bacc25.js" crossorigin="anonymous"></script>
+
+  <!--<link rel="stylesheet" href="css/main.css"/>-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
 </head>
+
 <body>
+
+  <div class="navbar" style="background-color: #39ae96;">
+    <div class="navbar-brand">
+      <img src="./static/images/Vector.png" alt="" style="padding: 5px 10vw;">
+    </div>
+    <div class="navbar-menu">
+      <div class="navbar-end">
+        <span style="padding: 7px 10vw 0;">
+          <input type="button" class="button is-primary" id="bulmamodal" value="Login" style="margin-right: 20px;" />
+          <input type="button" class="button is-success" id="btn_bulmamodal2" value="SignUp" />
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <section class="hero is-fullheight" id="get">
+    <div class="hero-body">
+      <div class="container">
+        <div class="columns is-desktop is-vcentered">
+          <div class="column has-text-centered">
+            <span style="font-family: 'Quicksand'; font-size: 2rem;">Tracking Attendace made <span
+                style="color: #39ae96;">Easy.</span></span> <br> <br>
+            <div class="button is-primary">
+              Get Started
+            </div>
+          </div>
+          <div class="column has-text-centered">
+            <img src="./static/images/Group 5.png" alt="iphoneSample" style="height: 500px;">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <div class="modal is-active is-clipped">
+    <div class="modal-background"></div>
+    <div class="modal-content is-clipped">
+      <section class="container">
+        <div class="columns is-multiline">
+          <div class="column is-8 is-offset-2 register">
+            <div class="columns">
+              <div class="column left">
+                <h1 class="title is-2">Attendace Tracker</h1>
+                <h2 class="subtitle colored is-4">Lorem ipsum dolor sit amet.</h2>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corporis ex deleniti aliquam tempora libero
+                  excepturi vero soluta odio optio sed.</p>
+              </div>
+              <div class="column right has-text-centered">
+                <h1 class="title is-4">Sign up today</h1>
+                <form>
+                  <div class="field">
+                    <div class="control">
+                      <input class="input is-medium" type="text" placeholder="Name">
+
+
+                    </div>
+                    <div class="field">
+                      <div class="control">
+                        <input class="input is-medium" type="text" placeholder="Password">
+                      </div>
+                    </div>
+
+                    <button class="button is-block is-primary is-fullwidth is-medium">Submit</button>
+                    <br />
+                    <small><em>Lorem ipsum dolor sit amet consectetur.</em></small>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+  </div>
+
+  <!--Modal for login-->
+  <!-- <div class="modal" role="dialog" id="modal2">
+    <div class="modal-background"></div>
+
+    <div class="modal-content is-clipped">
+      <section class="container">
+        <div class="columns is-multiline" style="overflow:hidden">
+          <div class="column is-8 is-offset-2 register">
+            <div class="columns">
+              <div class="column left">
+                <h1 class="title is-2">Attendace Tracker</h1>
+                <h2 class="subtitle colored is-4">Lorem ipsum dolor sit amet.</h2>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corporis ex deleniti aliquam tempora libero
+                  excepturi vero soluta odio optio sed.</p>
+              </div>
+              <div class="column right has-text-centered">
+                <h1 class="title is-4">Log in</h1>
+                <p class="description">Lorem ipsum dolor, sit amet consectetur adipisicing elit</p>
+                <form>
+                  <div class="field">
+                    <div class="control">
+                      <input class="input is-medium" type="text" placeholder="E-mail">
+
+                    </div>
+                    <div class="field">
+                      <div class="control">
+                        <input class="input is-medium" type="text" placeholder="Password">
+                      </div>
+                    </div>
+
+                    <button class="button is-block is-primary is-fullwidth is-medium">Submit</button>
+                    <br />
+                    <small><em>Lorem ipsum dolor sit amet consectetur.</em></small>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+  </div> -->
+
+
+  <div class="footer has-text-centered" style="padding: 1rem 1rem;">
+    Designed by Hack-Club. All rights reserved.
+  </div>
+  <script src="static/js/main.js"></script>
+</body>
+<!-- <body>
     <nav class="navbar is-transparent">
         <div class="navbar-brand">
           <a class="navbar-item" href="#">
@@ -47,5 +173,6 @@
           </div>
         </div>
       </nav>
-</body>
+</body> -->
+
 </html>
