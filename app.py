@@ -42,7 +42,7 @@ def register_page():
     return render_template('signup.html',ishwar_tu_chutiya_hain=ishwar_tu_chutiya_hain)
   
 
-@app.route('/register', methods=['POST'])
+@app.route('/mainlogin', methods=['POST'])
 def register():
     none="none"
     try:
