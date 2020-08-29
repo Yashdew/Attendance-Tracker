@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Document</title>
+  <script src="https://kit.fontawesome.com/df67bacc25.js" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="./main.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css" />
+
+
+</head>
+
+<body>
+
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item" style="padding: 5px 10vw">
+        <img src="./static/images/Vector.png" alt="" />
+      </a>
+
+      <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
+        data-target="navbarBasicExample">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+
+    <div id="navbarBasicExample" class="navbar-menu">
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <div class="buttons">
+            <a id="logout" href="index.html" class="button is-primary">
+              <strong>Log Out</strong>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <!-- END NAV -->
+
+  <section class="section">
+    <div class="container">
+      <div class="columns">
+        <div class="column is-3 ">
+          <aside class="menu is-hidden-mobile">
+    
+            <p class="menu-label">
+              Options
+            </p>
+            <ul class="menu-list">
+              <li><a></a></li>
+              <li>
+                <a>Manage Your Classes</a>
+                <ul>
+                  <li><a>Students</a></li>
+                  <li><a>Attendance</a></li>
+                  <li><a>Settings</a></li>
+                 
+                </ul>
+              </li>
+    
+            </ul>
+    
+          </aside>
+        </div>
+        <div class="column is-9">
+    
+          <section class="hero is-info welcome is-small">
+            <div class="hero-body">
+              <div class="container">
+                <h1 class="title">
+                  Hello, Apre Sir
+                </h1>
+                <h2 class="subtitle">
+                  I hope you are having a great day!
+                </h2>
+              </div>
+            </div>
+          </section>
+
+        
+          <div class="columns">
+            
+            <div class="column is-6">
+              <div class="card">
+                <header class="card-header">
+                  <p class="card-header-title">
+                    Upload CSV
+                  </p>
+                  <a href="#" class="card-header-icon" aria-label="more options">
+                    <span class="icon">
+                      <i class="fa fa-angle-down" aria-hidden="true"></i>
+                    </span>
+                  </a>
+                </header>
+                <div class="card-content">
+                  <div class="content">
+                    <div id="file-js-example" class="file has-name">
+                      <label class="file-label">
+                        <input class="file-input" type="file" name="resume">
+                        <span class="file-cta">
+                          <span class="file-icon">
+                            <i class="fas fa-upload"></i>
+                          </span>
+                          <span class="file-label">
+                            Choose a file…
+                          </span>
+                        </span>
+                        <span class="file-name">
+                          No file uploaded
+                        </span>
+    
+                        <input class="button is-success" type="submit" value="Submit CSV">
+    
+                      </label>
+                    </div>
+    
+    
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="column is-6">
+              <div class="card">
+                <header class="card-header">
+                  <p class="card-header-title">
+                    Download CSV
+                  </p>
+                  <a href="#" class="card-header-icon" aria-label="more options">
+                    <span class="icon">
+                      <i class="fa fa-angle-down" aria-hidden="true"></i>
+                    </span>
+                  </a>
+                </header>
+                <div class="card-content">
+                  <div class="content">
+                    <div id="file-js-example" class="file has-name">
+                      <input class="button is-success" type="Download" value="Download CSV">
+    
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+
+
+
+  <script src="main.js"></script>
+</body>
+<script>
+  document.querySelector("#onetimelogin").addEventListener("click", () => {
+    modalonetimelogin.classList.add("is-active");
+  });
+
+
+  modalbackground.addEventListener("click", () => {
+    modal.classList.remove("is-active");
+  });
+</script>
+
+</html>
+
+
+
+
+
+
+
+
+
+<div class="modal  is-clipped">
+  <div class="modal-background"></div>
+  <div class="modal-card">
+    <header class="modal-card-head">
+      <p class="modal-card-title">Download CSV</p>
+      <button class="delete" aria-label="close"></button>
+    </header>
+    <section class="modal-card-body">`
+      <div class="columns">
+        <div class="column">
+          <h1>Select Year:</h1>
+          <!--Button-->
+          <div class="dropdown is-hoverable">
+            <div class="dropdown-trigger">
+              <button class="button" aria-haspopup="true" aria-controls="dropdown-menu4">
+                <span>Year</span>
+                <span class="icon is-small">
+                  <i class="fas fa-angle-down" aria-hidden="true"></i>
+                </span>
+              </button>
+            </div>
+            <div class="dropdown-menu" id="dropdown-menu4" role="menu">
+              <div class="dropdown-content">
+                <a href="#" class="dropdown-item">
+                  FE
+                </a>
+                <a href="#" class="dropdown-item">
+                  SE
+                </a>
+                <a href="#" class="dropdown-item">
+                  TE
+                </a>
+                <a href="#" class="dropdown-item">
+                  BE
+                </a>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="column">
+          <h1>Select Division:</h1>
+          <!--Button-->
+          <div class="dropdown is-hoverable">
+            <div class="dropdown-trigger">
+              <button class="button" aria-haspopup="true" aria-controls="dropdown-menu4">
+                <span>Division</span>
+                <span class="icon is-small">
+                  <i class="fas fa-angle-down" aria-hidden="true"></i>
+                </span>
+              </button>
+            </div>
+            <div class="dropdown-menu" id="dropdown-menu4" role="menu">
+              <div class="dropdown-content">
+                <a href="#" class="dropdown-item">
+                  I
+                </a>
+                <a href="#" class="dropdown-item">
+                  II
+                </a>
+                <a href="#" class="dropdown-item">
+                  III
+                </a>
+                <a href="#" class="dropdown-item">
+                  IV
+                </a>
+                <a href="#" class="dropdown-item">
+                  V
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="modal-card-foot">
+      <button class="button is-success">Download</button>
+      <button class="button">Cancel</button>
+    </footer>
+  </div>
+</div> 

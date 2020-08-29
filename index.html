@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <script src="https://kit.fontawesome.com/df67bacc25.js" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="./main.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css" />
+</head>
+
+<body>
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item" style="padding: 5px 10vw">
+        <img src="Vector.png" alt="" />
+      </a>
+
+      <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
+        data-target="navbarBasicExample">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+
+    <div id="navbarBasicExample" class="navbar-menu">
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <div class="buttons">
+            <a class="button is-primary">
+              <strong>Sign up</strong>
+            </a>
+            <a id="onetimelogin" class="button is-light"> OneTime Log in </a>
+            <a id="login" class="button is-primary">
+              <strong>Log In</strong>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero is-fullheight-with-navbar">
+    <div class="hero-body">
+      <div class="container">
+        <div class="columns is-desktop is-vcentered">
+          <div class="column has-text-centered">
+            <div class="title">
+              Tracking Attendace made
+              <span style="color: #39ae96">Easy.</span>
+            </div>
+
+            <div class="button is-primary">Get Started</div>
+          </div>
+          <div class="column has-text-centered">
+            <img src="Group 5.png" alt="iphoneSample" style="height: 500px" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="modal onetimelogin">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+      <div class="columns">
+        <div class="column left">
+          <h1 class="title is-1">Attendance Tracker</h1>
+          <h2 class="subtitle colored is-4">Lorem ipsum dolor sit amet.</h2>
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corporis
+            ex deleniti aliquam tempora libero excepturi vero soluta odio
+            optio sed.
+          </p>
+        </div>
+        <div class="column right has-text-centered">
+          <h1 class="title is-4">One Time Log In</h1>
+          <form action="/maincheck" method="POST">
+            <div class="field">
+              <div class="control">
+                <input class="input is-medium" name="Email" type="email" placeholder="Email" required />
+              </div>
+            </div>
+            <div class="field">
+              <div class="control">
+                <input class="input is-medium" id="txtPassword" name="Password" type="password" placeholder="Password"
+                  value="" required />
+              </div>
+            </div>
+
+            <div class="field">
+              <div class="control">
+                <button onclick="location.href='./check.html';"
+                  class="button is-block is-primary is-fullwidth is-medium" id="btnSubmit">
+                  Submit
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <button class="modal-close is-large" aria-label="close"></button>
+  </div>
+
+  <div class="modal">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+      <div class="columns">
+        <div class="column left">
+          <h1 class="title is-1">Attendance Tracker</h1>
+          <h2 class="subtitle colored is-4">Lorem ipsum dolor sit amet.</h2>
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corporis
+            ex deleniti aliquam tempora libero excepturi vero soluta odio
+            optio sed.
+          </p>
+        </div>
+        <div class="column right has-text-centered">
+          <h1 class="title is-4">Log In to DashBoard</h1>
+          <!-- <form action="/dash.html" method="POST"> -->
+          <form>
+            <div class="field">
+              <div class="control">
+                <input class="input is-medium" name="Email" type="email" placeholder="Email" required />
+              </div>
+            </div>
+            <div class="field">
+              <div class="control">
+                <input class="input is-medium" id="txtPassword" name="Password" type="password" placeholder="Password"
+                  value="" required />
+              </div>
+            </div>
+
+            <div class="field">
+              <div class="control">
+                <button onclick="location.href='./dash.html';" class="button is-block is-primary is-fullwidth is-medium"
+                  id="btnSubmit">
+                  Submit
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <button class="modal-close is-large" aria-label="close"></button>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+
+</html>
