@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, flash
+from flask import Flask, render_template, request, redirect, flash, url_for
 import pymongo
 from pymongo import MongoClient
 import requests
@@ -12,6 +12,8 @@ from werkzeug.security import generate_password_hash,check_password_hash
 from df2gspread import df2gspread as d2g
 from oauth2client.service_account import ServiceAccountCredentials
 import numpy as np
+from flask_mail import Mail, Message
+from itsdangerous import URLSafeTimedSerializer, SignatureExpired
 
 
 spreadsheetid = "1l4edR5UL8Ayg9AYtLjlMspdHdMjCeQ8P8RvKBMbEcH0"
@@ -21,7 +23,9 @@ spreadsheetid = "1l4edR5UL8Ayg9AYtLjlMspdHdMjCeQ8P8RvKBMbEcH0"
 
 app = Flask(__name__)
 
-
+app.config.from_pyfile('config.cfg')
+mail = Mail(app)
+s = URLSafeTimedSerializer('Thisisasecret!')
 
 myclient = pymongo.MongoClient("mongodb+srv://yashdew:5kAa9bRquer0cRtq@cluster0.c6ung.mongodb.net/yashdew?retryWrites=true&w=majority")
 
@@ -39,21 +43,21 @@ def index():
 
 @app.route('/signup',methods=['GET'])
 def register_page():
-    ishwar_tu_chutiya_hain='i$hw@rW@D@rch0d'
-    return render_template('signup.html')
+    ishwar_tu_chutiya_hain1='i$hw@rW@D@rch0d'
+    return render_template('signup.html' ,ishwar_tu_chutiya_hain1=ishwar_tu_chutiya_hain1)
   
 
 @app.route('/mainlogin', methods=['POST'])
 def register():
     password=generate_password_hash(request.form['Password'])
-    
+    ishwar_tu_chutiya_hain1='i$hw@rW@D@rch0d'
 
     none="none"
     
     try:
         if(request.form['Email']!='' or request.form['Name']!='' or request.form['Password']!='' or request.form['CPassword']!=''):
             if(request.form['Password']==request.form['CPassword']):
-                if(request.form['SID']=='0000'):
+                if(request.form['SID']==ishwar_tu_chutiya_hain1):
                     
                     record = {
                                 "Email": request.form['Email'],
@@ -236,23 +240,30 @@ def forget():
 
 @app.route('/OTPforpassword',methods=['GET','POST'])
 def forgetpassword():
-    for x in mycol.find():
-        if x['Email']==request.form['Email']:
-            email=x['Email']
-            name=x['Name']
-            return render_template('OTP.html',email=email,name=name)
-        else:
-            redirect('forget.html')
+    """for x in mycol.find():
+        if x['Email']==request.form['Email']:"""
+    email='yashdewangan123456@gmail.com'
+    
+    token = s.dumps(email, salt='email-confirm')
+    msg = Message('Confirm Email', sender='sknhackclub@gmail.com', recipients=[email])
+
+    link = url_for('updatepassword',token=token, _external=True)
+
+    msg.body = "Your Link is {}".format(link)
+
+    mail.send(msg)
+
+    return render_template('OTP.html',email=email,token=token) 
+        
 ###################
-"""@app.route('/mainlogin',methods=['GET','POST'])
-def forgetpassword():
-    for x in mycol.find():
-        if x['Email']==request.form['Email']:
-            email=x['Email']
-            name=x['Name']
-            return render_template('OTP.html',email=email,name=name)
-        else:
-            redirect('forget.html')"""
+@app.route('/updatepassword/<token>')
+def updatepassword(token):
+    try:
+        email = s.loads(token,salt='email-confirm',max_age=10)
+        print(email)
+    except SignatureExpired:
+        return 'The Token is expired'
+    return 'The token works'
 
 
 @app.route('/upload',methods=['GET','POST'])
@@ -376,8 +387,8 @@ def download():
     return render_template('download.html')
 
 
-
-app.run(debug=True)   
+if __name__ == '__main__':
+    app.run(debug=True)   
 
 
 

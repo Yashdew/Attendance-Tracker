@@ -113,17 +113,31 @@
 </body>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 <script type="text/javascript">
+
+  var ishwar_tu_chutiya_hain1 = {{ ishwar_tu_chutiya_hain }}
+  var sid = $("#SecretID").val();
+  if (sid!=ishwar_tu_chutiya_hain1) {
+                alert("secret ID do not match.");
+                return false;
+            }
+            return true;
+</script>
+<script type="text/javascript">
     $(function () {
         $("#btnSubmit").click(function () {
             var password = $("#txtPassword").val();
             var confirmPassword = $("#txtConfirmPassword").val();
-            var sid = $("#SecretID").val();
-            if (password != confirmPassword || sid!="0000") {
-                alert("Passwords or secret ID do not match.");
+            
+            if (password != confirmPassword) {
+                alert("Passwords do not match.");
                 return false;
             }
             return true;
         });
     });
 </script>
+<script type="text/javascript">
+function myFunc() {
+  return username + site
+}</script>
 </html>
