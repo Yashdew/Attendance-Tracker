@@ -1,4 +1,5 @@
-from flask import Flask, render_template, request, redirect, flash, url_for
+from flask import Flask, render_template, request, redirect, flash, url_for, session, g, Response
+import os 
 import pymongo
 from pymongo import MongoClient
 import requests
@@ -22,6 +23,7 @@ spreadsheetid = "1l4edR5UL8Ayg9AYtLjlMspdHdMjCeQ8P8RvKBMbEcH0"
 
 
 app = Flask(__name__)
+app.secret_key = os.urandom(24)
 
 app.config.from_pyfile('config.cfg')
 mail = Mail(app)
@@ -212,25 +214,48 @@ def check():
                
                
                 mycol.update_many({"_id":record['_id']},newrecord)
-                
-            
+                return render_template('mainlogin.html')
+    Response.flash = 'Wrong Password'
+    return render_template('check.html')       
       
-    return render_template('mainlogin.html')  
+      
 ######## Main Login
 @app.route('/mainlogin')
 def register_page_main():
   return render_template('mainlogin.html')
 
-@app.route('/maincheck', methods=['GET','POST'])  ###GET for name
+@app.route('/maincheck', methods=['GET','POST'])  ###Kuch bhasad hi hain yaha yaad rakhna
 def checkmain():
-    password=generate_password_hash(request.form['Password'])
-    for x in mycol.find():
-        if x['Email']==request.form['Email'] and check_password_hash(x['Password'],request.form['Password']):
-            name=x['Name']
-            email=x['Email']
-            
+    if request.method == 'POST':
+        session.pop('user',None)
+        password=generate_password_hash(request.form['Password'])
+        for x in mycol.find():
+            if x['Email']==request.form['Email'] and check_password_hash(x['Password'],request.form['Password']):
+                name=x['Name']
+                email=x['Email']
+                session['user']=x['Name']
+                return redirect(url_for('protected'))
+                """return render_template('checkstatus.html',name=name,email=email)"""
+    
+    return render_template('mainlogin.html')
 
-            return render_template('checkstatus.html',name=name,email=email) 
+@app.route('/protected', methods=['GET','POST'])
+def protected():
+    if g.user:
+        return render_template('checkstatus.html',user=session['user'])
+    return redirect(url_for('mainlogin'))
+
+@app.before_request
+def before_request():
+    g.user = None
+
+    if 'user' in session:
+        g.user = session['user']
+
+@app.route('/dropsession')
+def dropsession():
+    session.pop('user',None)
+    return render_template('mainlogin.html')
 #############   
 
 ##################### Forget Password
@@ -255,7 +280,7 @@ def forgetpassword():
 
     return render_template('OTP.html',email=email,token=token) 
         
-###################
+
 @app.route('/updatepassword/<token>')
 def updatepassword(token):
     try:
@@ -264,7 +289,7 @@ def updatepassword(token):
     except SignatureExpired:
         return 'The Token is expired'
     return 'The token works'
-
+###################
 
 @app.route('/upload',methods=['GET','POST'])
 def dashboard():
