@@ -293,8 +293,8 @@ def updatepassword(token):
 
 @app.route('/upload',methods=['GET','POST'])
 def dashboard():
-    
-    return render_template('upload.html') 
+    if g.user:
+        return render_template('upload.html',user=session['user']) 
 
 @app.route('/uploadfile', methods=['POST'])
 def download():
