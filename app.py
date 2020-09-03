@@ -15,7 +15,7 @@ from oauth2client.service_account import ServiceAccountCredentials
 import numpy as np
 from flask_mail import Mail, Message
 from itsdangerous import URLSafeTimedSerializer, SignatureExpired
-
+import xlsxwriter
 
 spreadsheetid = "1l4edR5UL8Ayg9AYtLjlMspdHdMjCeQ8P8RvKBMbEcH0"
 
@@ -67,36 +67,36 @@ def register():
                                 "Password":  password,
                                 "SID": request.form['SID'],
                                 "Period1":{
-                                                "College":none,
-                                                "Dept":none,
-                                                "Year":none,
-                                                "Subject":none,
-                                                "Div":none
-
+                                                "College":request.form['College'],
+                                                "Dept":request.form['Department'],
+                                                "Year":request.form['Year'],
+                                                "Subject":request.form['Subject'],
+                                                "Div":request.form['Div'],
+                            
                                 },
                                 "Period2":{
-                                                "College":none,
-                                                "Dept":none,
-                                                "Year":none,
-                                                "Subject":none,
-                                                "Div":none
-
+                                                "College":request.form['College1'],
+                                                "Dept":request.form['Department1'],
+                                                "Year":request.form['Year1'],
+                                                "Subject":request.form['Subject1'],
+                                                "Div":request.form['DivA'],
+                            
                                 },
                                 "Period3":{
-                                                "College":none,
-                                                "Dept":none,
-                                                "Year":none,
-                                                "Subject":none,
-                                                "Div":none
-
+                                                "College":request.form['College2'],
+                                                "Dept":request.form['Department2'],
+                                                "Year":request.form['Year2'],
+                                                "Subject":request.form['Subject2'],
+                                                "Div":request.form['DivB'],
+                            
                                 },
                                 "Period4":{
-                                                "College":none,
-                                                "Dept":none,
-                                                "Year":none,
-                                                "Subject":none,
-                                                "Div":none
-
+                                                "College":request.form['College3'],
+                                                "Dept":request.form['Department3'],
+                                                "Year":request.form['Year3'],
+                                                "Subject":request.form['Subject3'],
+                                                "Div":request.form['DivC'],
+                            
                                 },
                                 "Period5":{
                                                 "College":none,
@@ -291,10 +291,13 @@ def updatepassword(token):
     return 'The token works'
 ###################
 
+######################################################################3
+##########Bhadwe sunn ye tera dashboard hain yaha changes karna hain 
+######################################################################3
 @app.route('/upload',methods=['GET','POST'])
 def dashboard():
     if g.user:
-        return render_template('upload.html',user=session['user']) 
+        return render_template('upload.html',user=session['user'])   
 
 @app.route('/uploadfile', methods=['POST'])
 def download():
