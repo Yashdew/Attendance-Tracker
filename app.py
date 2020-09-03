@@ -291,10 +291,13 @@ def updatepassword(token):
     return 'The token works'
 ###################
 
+######################################################################3
+##########Bhadwe sunn ye tera dashboard hain yaha changes karna hain 
+######################################################################3
 @app.route('/upload',methods=['GET','POST'])
 def dashboard():
     if g.user:
-        return render_template('upload.html',user=session['user']) 
+        return render_template('upload.html',user=session['user'])   
 
 @app.route('/uploadfile', methods=['POST'])
 def download():
