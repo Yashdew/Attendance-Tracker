@@ -23,7 +23,7 @@ credentials = ServiceAccountCredentials.from_json_keyfile_name('skn-hackclub-287
 gc = gs.authorize(credentials)
 
 app = Flask(__name__)
-app.secret_key = os.urandom(24)
+app.secret_key = "emHMtBQQzY7nmlOd"
 
 app.config.from_pyfile('config.cfg')
 mail = Mail(app)
@@ -240,9 +240,11 @@ def checkmain():
                 name=x['Name']
                 email=x['Email']
                 session['user']=x['Name']
-                global g
+                session['period1'] = x['Period1']['College']+" "+x['Period1']['Dept']+" "+x['Period1']['Year']+" "+x['Period1']['Subject']+" "+x['Period1']['Div']
+                session['period2'] = x['Period2']['College']+" "+x['Period2']['Dept']+" "+x['Period2']['Year']+" "+x['Period2']['Subject']+" "+x['Period2']['Div']
+                session['period3'] = x['Period3']['College']+" "+x['Period3']['Dept']+" "+x['Period3']['Year']+" "+x['Period3']['Subject']+" "+x['Period3']['Div']
+                session['period4'] = x['Period4']['College']+" "+x['Period4']['Dept']+" "+x['Period4']['Year']+" "+x['Period4']['Subject']+" "+x['Period4']['Div']
                 g.user = session['user']
-                print(g)
                 return redirect(url_for('protected'))
                 """return render_template('checkstatus.html',name=name,email=email)"""
     
@@ -301,11 +303,6 @@ def updatepassword(token):
 def dashboard():
     print(g.user)
     if g.user:
-        for x in mycol.find():
-            session['period1'] = x['Period1']['College']+" "+x['Period1']['Dept']+" "+x['Period1']['Year']+" "+x['Period1']['Subject']+" "+x['Period1']['Div']
-            session['period2'] = x['Period2']['College']+" "+x['Period2']['Dept']+" "+x['Period2']['Year']+" "+x['Period2']['Subject']+" "+x['Period2']['Div']
-            session['period3'] = x['Period3']['College']+" "+x['Period3']['Dept']+" "+x['Period3']['Year']+" "+x['Period3']['Subject']+" "+x['Period3']['Div']
-            session['period4'] = x['Period4']['College']+" "+x['Period4']['Dept']+" "+x['Period4']['Year']+" "+x['Period4']['Subject']+" "+x['Period4']['Div']
         return render_template('upload.html',user=session['user'],period1=session['period1'],period2=session['period2'],period3=session['period3'],period4=session['period4'])           
 
 @app.route('/uploadfile', methods=['POST'])
@@ -359,7 +356,7 @@ def download():
         elif df1['Full Name'].value_counts().sort_index()[a]%2 == 0:    
             while b < df1['Full Name'].value_counts().sort_index()[a]/2:
                 j = df1.iloc[i]['Timestamp'].split()[1]
-                l = df.iloc[i+1]['Timestamp'].split()[1]
+                l = df1.iloc[i+1]['Timestamp'].split()[1]
                 h,m,s = j.split(':')
                 h1,m1,s1 = l.split(':')
                 seconds = int(float(datetime.timedelta(hours=int(h1)-int(h),minutes=int(m1)-int(m),seconds=int(s1)-int(s)).total_seconds()))
