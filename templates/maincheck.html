@@ -39,16 +39,41 @@
                 <form action = "/signup" method="GET">
                     <button class="button">signup</button>
                 </form>    
-                <!--<form action = "/login" method="GET">
+                <form action = "/signup" method="GET">
                     <button class="button">Login</button>
-                </form>-->
-                <form action = "/mainlogin" method="GET">
-                  <button class="button">Login</button>
                 </form>
               </div>
             </div>
           </div>
         </div>
       </nav>
+
+
+      <section>
+        <div class="columns is-mobile is-centered mt-6 pt-6">
+            <div class="column is-half">
+               <form action = "/check" method="POST">
+                    <div class="field">
+                        <label class="label">Email</label>
+                            <div class="control">
+                                <input class="input" name="Email" type="email" placeholder="Email" required>
+                            </div>
+                    </div>
+                    <div class="field">
+                      <label class="label">Password</label>
+                        <div class="control ">
+                            <input class="input " name="Password" type="password" placeholder="password" value="" required>
+                        </div>
+                    </div>
+                    <div class="field is-grouped">
+                    <div class="control">
+                      <button class="button is-link" id="btnSubmit">Submit</button>
+                    </div>
+                  </div>
+              </form>
+                
+            </div>  
+        </div>
+      </section>
 </body>
 </html>

@@ -17,10 +17,12 @@ from flask_mail import Mail, Message
 from itsdangerous import URLSafeTimedSerializer, SignatureExpired
 import xlsxwriter
 
+
 scope = ['https://spreadsheets.google.com/feeds',
 'https://www.googleapis.com/auth/drive']
 credentials = ServiceAccountCredentials.from_json_keyfile_name('skn-hackclub-287609-4a1b8cc8cdf4.json', scope)
 gc = gs.authorize(credentials)
+
 
 app = Flask(__name__)
 app.secret_key = os.urandom(24)
@@ -44,9 +46,11 @@ def index():
 
 
 
+
 @app.route('/google6d50026f7b3d14d5.html')
 def google6d50026f7b3d14d5():
     return render_template('google6d50026f7b3d14d5.html')
+
 
 
 @app.route('/signup',methods=['GET'])
@@ -240,9 +244,11 @@ def checkmain():
                 name=x['Name']
                 email=x['Email']
                 session['user']=x['Name']
+
                 global g
                 g.user = session['user']
                 print(g)
+
                 return redirect(url_for('protected'))
                 """return render_template('checkstatus.html',name=name,email=email)"""
     
@@ -250,13 +256,18 @@ def checkmain():
 
 @app.route('/protected', methods=['GET','POST'])
 def protected():
-    print(g.user)
+    print(g.user) #
+
     if g.user:
         return render_template('checkstatus.html',user=session['user'])
     return redirect(url_for('mainlogin'))
 
 @app.before_request
 def before_request():
+
+    g.user = None #dekh lenna
+
+
     if 'user' in session:
         g.user = session['user']
 
@@ -297,6 +308,7 @@ def updatepassword(token):
     except SignatureExpired:
         return 'The Token is expired'
     return 'The token works'
+
 @app.route('/upload',methods=['GET','POST'])
 def dashboard():
     print(g.user)
@@ -307,6 +319,7 @@ def dashboard():
             session['period3'] = x['Period3']['College']+" "+x['Period3']['Dept']+" "+x['Period3']['Year']+" "+x['Period3']['Subject']+" "+x['Period3']['Div']
             session['period4'] = x['Period4']['College']+" "+x['Period4']['Dept']+" "+x['Period4']['Year']+" "+x['Period4']['Subject']+" "+x['Period4']['Div']
         return render_template('upload.html',user=session['user'],period1=session['period1'],period2=session['period2'],period3=session['period3'],period4=session['period4'])           
+
 
 @app.route('/uploadfile', methods=['POST'])
 def download():
@@ -383,6 +396,7 @@ def download():
     new['Full Name'] = df1['Full Name'].unique()
     #new['Total Attendance Time'] = grandtotal1
     new[date] = Attendance
+
     newAttendance = dict(zip(list(new['Full Name']),list(new[date])))
     try :
         spreadSheet = gc.open(title)

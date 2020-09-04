@@ -30,37 +30,40 @@
             <a class="navbar-item" href="#">
               Home
             </a>
+            <button class="button is-dark" onclick="window.location = 'http://Localhost:5000/dropsession'" type="submit">Log out</button>
             
           </div>
       
           <div class="navbar-end">
             <div class="navbar-item">
-              <div class="field is-grouped">
-                <form action = "/signup" method="GET">
-                    <button class="button">signup</button>
-                </form>    
-                <form action = "/signup" method="GET">
-                    <button class="button">Login</button>
-                </form>
-              </div>
+              <div>Name - {{user}} </div>
+              
+              <div> </div>
             </div>
           </div>
         </div>
       </nav>
       <section>
-        <div class="columns is-mobile is-centered mt-6 pt-6">
-            <div class="column is-half">
-              <p class="title is-3">Name - {{name}} </p>
-              <p class="title is-3">Username - {{username}}</p>
-              <p class="title is-3">email - {{email}}</p>
-            </div>
-
-            <form  action = "/dashboard" method="GET">
-              <div class="control">
-                <button class="button is-primary">dashboard</button>
-            </div>
-            </form>
-        </div>    
+        
+        <div class="columns is-desktop is-vcentered ">
+          <div class="column ">
+          <form action = "/upload" method="GET">
+              <div class="box has-text-centered">
+                <button class="button">Upload</button>
+              </div>
+          </form>
+          </div> 
+          <div class="column ">
+            <form action = "/maincheck" method="GET">
+              <div class="box has-text-centered">
+                <button class="button">download</button>
+              </div>
+            </form>  
+          </div>  
+        </div>
+            
+          
+           
       </section>
 </body>
 </html>

@@ -39,8 +39,11 @@
                 <form action = "/signup" method="GET">
                     <button class="button">signup</button>
                 </form>    
-                <form action = "/login" method="GET">
+                <!--<form action = "/login" method="GET">
                     <button class="button">Login</button>
+                </form>-->
+                <form action = "/mainlogin" method="GET">
+                  <button class="button">Login</button>
                 </form>
               </div>
             </div>
@@ -48,77 +51,352 @@
         </div>
       </nav>
 
-
-      <div class="columns is-mobile is-centered mt-6 pt-6">
-        <div class="column is-half">
-                    <form  action = "/register" method="POST">
+      <section>
+        <div class="columns is-mobile is-centered mt-6 pt-6">
+          <div class="column is-half">
+                      <form  action = "/mainlogin" method="POST">
+                        <h1 class="title is-3 has-text-danger has-text-centered" >This feature is only for Teachers user</h1>
                           <div class="field">
-                                <label class="label">ID</label>
-                                <div class="control">
-                                    <input class="input" name="ID" type="text" placeholder="ID">
-                                </div>
+                            <label class="label">Email</label>
+                            <div class="control ">
+                                <input class="input " name="Email" type="email" placeholder="Email" required>
+                            </div>
                           </div>
                           <div class="field">
                             <label class="label">Name</label>
                             <div class="control">
-                                <input class="input" name="Name" type="text" placeholder="Name">
+                                <input class="input" name="Name" type="text" placeholder="Name" required>
                             </div>
                           </div>
-    
-                        
-                        <div class="field">
-                            <label class="label">Username</label>
-                            <div class="control has-icons-left has-icons-right">
-                                <input class="input " name="Username" type="text" placeholder="Username" >
-                            </div>
-                        </div>
-                        
-                        <div class="field">
-                            <label class="label">Email</label>
-                            <div class="control has-icons-left has-icons-right">
-                                <input class="input " name="Email" type="email" placeholder="Email" >
-                            </div>
-                            
-                        </div>
-                        <div class="field">
+                          <div class="field">
                             <label class="label">Password</label>
-                            <div class="control has-icons-left has-icons-right">
-                                <input class="input " name="Password" type="password" placeholder="password" value="">
+                            <div class="control ">
+                                <input class="input" id="txtPassword" name="Password" type="password" placeholder="Password" value="" required>
                             </div>
-                            
-                        </div>
-                        <div class="field">
-                          <label class="label">Confirm Password</label>
-                          <div class="control has-icons-left has-icons-right">
-                              <input class="input " name="CPassword" type="Password" placeholder="Confirm Password" value="">
                           </div>
-                          
-                      </div>
-                        
-                      
-                        
-                        
-                        
-                        <div class="field is-grouped">
-                            <div class="control">
-                            <button class="button is-link">Submit</button>
+                          <div class="field">
+                            <label class="label">Confirm Password</label>
+                            <div class="control ">
+                                <input class="input" id="txtConfirmPassword" name="CPassword" type="Password" placeholder="Confirm Password" value="" required>
                             </div>
-                            <div class="control">
-                            <button class="button is-link is-light">Cancel</button>
+                          </div>
+                          <div class="field">
+                            <label class="label">Secret ID</label>
+                            <div class="control ">
+                                <input class="input" id="SecretID" name="SID" type="Password" placeholder="Secret ID" value="" required>
                             </div>
-                        </div>
-                    </form>
+                          </div>
+                          <div class="field  is-grouped has-text-left ">
+                            <div class="control">
+                              <label class="label">College</label>
+                              <div class="select">
+                                <select required name="College" id="myselect">
+                                  <option required>none</option>
+                                  <option required>SKNCOE</option>
+                                  <option required>SCOE</option>
+                                  <option required>NBNCOE</option>
+                                 
+                                </select>
+                              </div>
+                            </div>
+        
+                            <div class="control">
+                              <label class="label">Department</label>
+                              <div class="select">
+                                <select required name="Department" id="myselect">
+                                  <option required>none</option>
+                                  <option required>IT</option>
+                                  <option required>COMP</option>
+                                  <option required>MECH</option>
+                                  <option required>ENTC</option>
+                                </select>
+                              </div>
+                            </div>
+        
+                            <div class="control">
+                              <label class="label">Year</label>
+                              <div class="select">
+                                <select required name="Year" id="myselect">
+                                  <option required>none</option>
+                                  <option required>FE</option>
+                                  <option required>SE</option>
+                                  <option required>TE</option>
+                                  <option required>TE</option>
+                                </select>
+                              </div>
+                            </div>
+        
+                            <div class="control">
+                              <label class="label">Subject</label>
+                              <div class="select">
+                                <select required name="Subject" id="myselect">
+                                  <option required>none</option>
+                                  <option required>DBMS</option>
+                                  <option required>OS</option>
+                                  <option required>TOC</option>
+                                  <option required>SEMP</option>
+                                </select>
+                              </div>
+                            </div>
+        
+                            <div class="control">
+                              <label class="label">Divison</label>
+                              <div class="select">
+                                <select required name="Div" id="myselect">
+                                  <option required>none</option>
+                                  <option required>DIV 1</option>
+                                  <option required>DIV 2</option>
+                                  <option required>DIV 1 & DIV 2</option>
+                                  <option required>SEMP</option>
+                                </select>
+                              </div>
+                            </div>
+        
+                          </div>  
+        
+                          <div class="field  is-grouped has-text-left ">
+                            <div class="control">
+                              <label class="label">College</label>
+                              <div class="select">
+                                <select required name="College1" id="myselect">
+                                  <option required>none</option>
+                                  <option required>SKNCOE</option>
+                                  <option required>SCOE</option>
+                                  <option required>NBN COE</option>
+                                  <option required>ENTC</option>
+                                </select>
+                              </div>
+                            </div>
+        
+                            <div class="control">
+                              <label class="label">Department</label>
+                              <div class="select">
+                                <select required name="Department1" id="myselect">
+                                  <option required>none</option>
+                                  <option required>IT</option>
+                                  <option required>COMP</option>
+                                  <option required>MECH</option>
+                                  <option required>ENTC</option>
+                                </select>
+                              </div>
+                            </div>
+        
+                            <div class="control">
+                              <label class="label">Year</label>
+                              <div class="select">
+                                <select required name="Year1" id="myselect">
+                                  <option required>none</option>
+                                  <option required>FE</option>
+                                  <option required>SE</option>
+                                  <option required>TE</option>
+                                  <option required>TE</option>
+                                </select>
+                              </div>
+                            </div>
+        
+                            <div class="control">
+                              <label class="label">Subject</label>
+                              <div class="select">
+                                <select required name="Subject1" id="myselect">
+                                  <option required>none</option>
+                                  <option required>DBMS</option>
+                                  <option required>OS</option>
+                                  <option required>TOC</option>
+                                  <option required>SEMP</option>
+                                </select>
+                              </div>
+                            </div>
+        
+                            <div class="control">
+                              <label class="label">Divison</label>
+                              <div class="select">
+                                <select required name="DivA" id="myselect">
+                                  <option required>none</option>
+                                  <option required>DIV 1</option>
+                                  <option required>DIV 2</option>
+                                  <option required>DIV 1 & DIV 2</option>
+                                  <option required>SEMP</option>
+                                </select>
+                              </div>
+                            </div>
+        
+                          </div> 
+        
+                          <div class="field  is-grouped has-text-left ">
+                            <div class="control">
+                              <label class="label">College</label>
+                              <div class="select">
+                                <select required name="College2" id="myselect">
+                                  <option required>none</option>
+                                  <option required>SKNCOE</option>
+                                  <option required>SCOE</option>
+                                  <option required>NBN COE</option>
+                                  <option required>ENTC</option>
+                                </select>
+                              </div>
+                            </div>
+        
+                            <div class="control">
+                              <label class="label">Department</label>
+                              <div class="select">
+                                <select required name="Department2" id="myselect">
+                                  <option required>none</option>
+                                  <option required>IT</option>
+                                  <option required>COMP</option>
+                                  <option required>MECH</option>
+                                  <option required>ENTC</option>
+                                </select>
+                              </div>
+                            </div>
+        
+                            <div class="control">
+                              <label class="label">Year</label>
+                              <div class="select">
+                                <select required name="Year2" id="myselect">
+                                  <option required>none</option>
+                                  <option required>FE</option>
+                                  <option required>SE</option>
+                                  <option required>TE</option>
+                                  <option required>TE</option>
+                                </select>
+                              </div>
+                            </div>
+        
+                            <div class="control">
+                              <label class="label">Subject</label>
+                              <div class="select">
+                                <select required name="Subject2" id="myselect">
+                                  <option required>none</option>
+                                  <option required>DBMS</option>
+                                  <option required>OS</option>
+                                  <option required>TOC</option>
+                                  <option required>SEMP</option>
+                                </select>
+                              </div>
+                            </div>
+        
+                            <div class="control">
+                              <label class="label">Divison</label>
+                              <div class="select">
+                                <select required name="DivB" id="myselect">
+                                  <option required>none</option>
+                                  <option required>DIV 1</option>
+                                  <option required>DIV 2</option>
+                                  <option required>DIV 1 & DIV 2</option>
+                                  <option required>SEMP</option>
+                                </select>
+                              </div>
+                            </div>
+        
+                          </div>
+        
+                          <div class="field  is-grouped has-text-left ">
+                            <div class="control">
+                              <label class="label">College</label>
+                              <div class="select">
+                                <select required name="College3" id="myselect">
+                                  <option required>none</option>
+                                  <option required>SKNCOE</option>
+                                  <option required>SCOE</option>
+                                  <option required>NBN COE</option>
+                                  <option required>ENTC</option>
+                                </select>
+                              </div>
+                            </div>
+        
+                            <div class="control">
+                              <label class="label">Department</label>
+                              <div class="select">
+                                <select required name="Department3" id="myselect">
+                                  <option required>none</option>
+                                  <option required>IT</option>
+                                  <option required>COMP</option>
+                                  <option required>MECH</option>
+                                  <option required>ENTC</option>
+                                </select>
+                              </div>
+                            </div>
+        
+                            <div class="control">
+                              <label class="label">Year</label>
+                              <div class="select">
+                                <select required name="Year3" id="myselect">
+                                  <option required>none</option>
+                                  <option required>FE</option>
+                                  <option required>SE</option>
+                                  <option required>TE</option>
+                                  <option required>TE</option>
+                                </select>
+                              </div>
+                            </div>
+        
+                            <div class="control">
+                              <label class="label">Subject</label>
+                              <div class="select">
+                                <select required name="Subject3" id="myselect">
+                                  <option required>none</option>
+                                  <option required>DBMS</option>
+                                  <option required>OS</option>
+                                  <option required>TOC</option>
+                                  <option required>SEMP</option>
+                                </select>
+                              </div>
+                            </div>
+        
+                            <div class="control">
+                              <label class="label">Divison</label>
+                              <div class="select">
+                                <select required name="DivC" id="myselect">
+                                  <option required>none</option>
+                                  <option required>DIV 1</option>
+                                  <option required>DIV 2</option>
+                                  <option required>DIV 1 & DIV 2</option>
+                                  <option required>SEMP</option>
+                                </select>
+                              </div>
+                            </div>
+        
+                          </div>
+                          <div class="field is-grouped">
+                              <div class="control">
+                              <button class="button is-link" id="btnSubmit">Submit</button>
+                              </div>
+                          </div>
+                      </form>
+          </div>
         </div>
-        </div>
-        <section>
-            <div class="card">
-                <div class="card-content">
-                  <p class="title">
-                   {{ new_ID }} 
-                  </p>
-                </div>
-            </div>
-        </section>
+      </section>
+      
+        
     
 </body>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript">
+
+  var ishwar_tu_chutiya_hain1 = {{ ishwar_tu_chutiya_hain }}
+  var sid = $("#SecretID").val();
+  if (sid!=ishwar_tu_chutiya_hain1) {
+                alert("secret ID do not match.");
+                return false;
+            }
+            return true;
+</script>
+<script type="text/javascript">
+    $(function () {
+        $("#btnSubmit").click(function () {
+            var password = $("#txtPassword").val();
+            var confirmPassword = $("#txtConfirmPassword").val();
+            
+            if (password != confirmPassword) {
+                alert("Passwords do not match.");
+                return false;
+            }
+            return true;
+        });
+    });
+</script>
+<script type="text/javascript">
+function myFunc() {
+  return username + site
+}</script>
 </html>
