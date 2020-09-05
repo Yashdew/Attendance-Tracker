@@ -17,10 +17,12 @@ from flask_mail import Mail, Message
 from itsdangerous import URLSafeTimedSerializer, SignatureExpired
 import xlsxwriter
 
+
 scope = ['https://spreadsheets.google.com/feeds',
 'https://www.googleapis.com/auth/drive']
 credentials = ServiceAccountCredentials.from_json_keyfile_name('skn-hackclub-287609-4a1b8cc8cdf4.json', scope)
 gc = gs.authorize(credentials)
+
 
 app = Flask(__name__)
 app.secret_key = "emHMtBQQzY7nmlOd"
@@ -44,9 +46,11 @@ def index():
 
 
 
+
 @app.route('/google6d50026f7b3d14d5.html')
 def google6d50026f7b3d14d5():
     return render_template('google6d50026f7b3d14d5.html')
+
 
 
 @app.route('/signup',methods=['GET'])
@@ -240,11 +244,13 @@ def checkmain():
                 name=x['Name']
                 email=x['Email']
                 session['user']=x['Name']
+
                 session['period1'] = x['Period1']['College']+" "+x['Period1']['Dept']+" "+x['Period1']['Year']+" "+x['Period1']['Subject']+" "+x['Period1']['Div']
                 session['period2'] = x['Period2']['College']+" "+x['Period2']['Dept']+" "+x['Period2']['Year']+" "+x['Period2']['Subject']+" "+x['Period2']['Div']
                 session['period3'] = x['Period3']['College']+" "+x['Period3']['Dept']+" "+x['Period3']['Year']+" "+x['Period3']['Subject']+" "+x['Period3']['Div']
                 session['period4'] = x['Period4']['College']+" "+x['Period4']['Dept']+" "+x['Period4']['Year']+" "+x['Period4']['Subject']+" "+x['Period4']['Div']
                 g.user = session['user']
+
                 return redirect(url_for('protected'))
                 """return render_template('checkstatus.html',name=name,email=email)"""
     
@@ -252,13 +258,18 @@ def checkmain():
 
 @app.route('/protected', methods=['GET','POST'])
 def protected():
+
     print(g.user)
+
     if g.user:
         return render_template('checkstatus.html',user=session['user'])
     return redirect(url_for('mainlogin'))
 
 @app.before_request
 def before_request():
+
+    #g.user = None
+
     if 'user' in session:
         g.user = session['user']
 
@@ -299,24 +310,29 @@ def updatepassword(token):
     except SignatureExpired:
         return 'The Token is expired'
     return 'The token works'
+
 @app.route('/upload',methods=['GET','POST'])
 def dashboard():
-    print(g.user)
     if g.user:
+
         return render_template('upload.html',user=session['user'],period1=session['period1'],period2=session['period2'],period3=session['period3'],period4=session['period4'])           
+
 
 @app.route('/uploadfile', methods=['POST'])
 def download():
-    for x in mycol.find():
-        email = x['Email']
-    title = request.form['attendance']
+    #filename=request.form['myfile']
+    print(request.form)
+    print(request.files.get('myfile'))
     df = pd.read_csv(request.files.get('myfile'),encoding='utf-16',delimiter='\t')
-    print(email)
-    print(title)
+
+    print(df)
     date = str(df['Timestamp'][0]).split()[0][:-1]
     df1 = df.sort_values(['Full Name','Timestamp'])
     XD = df1[(df1['Full Name']=='useradmin' ) | (df1['Full Name']=='Ravindra Apare')]
-    mh,mm,ms = str(XD['Timestamp']).split()[2].split(':')
+    x = XD['Timestamp']
+    y = str(x)[15:23]
+    y.split(':')
+    mh,mm,ms = y.split(':')
     basetime = int(datetime.timedelta(hours=int(mh),minutes=int(mm),seconds=int(ms)).total_seconds())
     endtime = basetime + 3900
     df1.reset_index(inplace=True)
@@ -332,14 +348,15 @@ def download():
     grandtotal = []
     while a < len(df1['Full Name'].unique()):
         if df1['Full Name'].value_counts().sort_index()[a]==1:
-            h,m,s = df1.iloc[i]['Timestamp'].split()[1].split(':')
+            jo = df1.iloc[i]['Timestamp'][10:18]
+            h,m,s = jo.split(':')
             seconds = int(datetime.timedelta(hours=int(h),minutes=int(m),seconds=int(s)).total_seconds())
             seconds1 = endtime - seconds
             i = i + 1
         elif df1['Full Name'].value_counts().sort_index()[a]%2 != 0:
             while b1 < math.trunc(df1['Full Name'].value_counts().sort_index()[a]/2):
-                j = df1.iloc[i]['Timestamp'].split()[1]
-                l = df1.iloc[i+1]['Timestamp'].split()[1]
+                j = df1.iloc[i]['Timestamp'][10:18]
+                l = df1.iloc[i+1]['Timestamp'][10:18]
                 h,m,s = j.split(':')
                 h1,m1,s1 = l.split(':')
                 seconds = int(datetime.timedelta(hours=int(h1)-int(h),minutes=int(m1)-int(m),seconds=int(s1)-int(s)).total_seconds())
@@ -347,7 +364,7 @@ def download():
                 b1 = b1 + 1 
                 i = i + 2
             b1 = 0    
-            jo = df1.iloc[i]['Timestamp'].split()[1]
+            jo = df1.iloc[i]['Timestamp'][10:17]
             h,m,s = jo.split(':')
             seconds = int(datetime.timedelta(hours=int(h),minutes=int(m),seconds=int(s)).total_seconds()) 
             seconds2 = seconds1 + (endtime - seconds)
@@ -355,11 +372,13 @@ def download():
             i = i + 1
         elif df1['Full Name'].value_counts().sort_index()[a]%2 == 0:    
             while b < df1['Full Name'].value_counts().sort_index()[a]/2:
+
                 j = df1.iloc[i]['Timestamp'].split()[1]
                 l = df1.iloc[i+1]['Timestamp'].split()[1]
+
                 h,m,s = j.split(':')
                 h1,m1,s1 = l.split(':')
-                seconds = int(float(datetime.timedelta(hours=int(h1)-int(h),minutes=int(m1)-int(m),seconds=int(s1)-int(s)).total_seconds()))
+                seconds = int(datetime.timedelta(hours=int(h1)-int(h),minutes=int(m1)-int(m),seconds=int(s1)-int(s)).total_seconds())
                 seconds1 = seconds1 + seconds
                 b = b + 1
                 i = i + 2
@@ -380,6 +399,7 @@ def download():
     new['Full Name'] = df1['Full Name'].unique()
     #new['Total Attendance Time'] = grandtotal1
     new[date] = Attendance
+
     newAttendance = dict(zip(list(new['Full Name']),list(new[date])))
     try :
         spreadSheet = gc.open(title)
