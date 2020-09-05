@@ -30,7 +30,7 @@
             <a class="navbar-item" href="#">
               Home
             </a>
-            <button class="button is-dark" onclick="window.location = 'http://Localhost:5000/dropsession'" type="submit">Log out</button>
+            <button class="button is-dark" onclick="window.location = 'https://attendancesknhc.herokuapp.com/dropsession'" type="submit">Log out</button>
             
           </div>
         </div>
@@ -50,7 +50,16 @@
             <div class="column is-half">
                 <p class="title is-3">upload your CSV</p>
                 <form action="/uploadfile" method="POST" enctype="multipart/form-data">
-                  
+                  <label class="label">Select your Class</label>
+                    <div class="select">
+                      <select required name="attendance" id="myselect">
+                        <option required>{{period1}}</option>
+                        <option required>{{period2}}</option>
+                        <option required>{{period3}}</option>
+                        <option required>{{period4}}</option>
+                      </select>
+                    </div>
+                  </div>
                   <label for="myfile">Select files:</label>
                    <input type="file" id="myfile" name="myfile" multiple><br><br>
                  <div class="control mt-5">
