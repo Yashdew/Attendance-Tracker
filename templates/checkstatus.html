@@ -1,69 +1,165 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script
-      src="https://kit.fontawesome.com/df67bacc25.js"
-      crossorigin="anonymous"
-    ></script>
-    
-    <!--<link rel="stylesheet" href="css/main.css"/>-->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <script src="https://kit.fontawesome.com/df67bacc25.js" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="../static/css/main.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css" />
 </head>
+
 <body>
-    <nav class="navbar is-transparent">
-        <div class="navbar-brand">
-          <a class="navbar-item" href="#">
-            <img src="https://bulma.io/images/bulma-logo.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28">
-          </a>
-          <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
-            <span></span>
-            <span></span>
-            <span></span>
+  <nav class="navbar is-transparent is-spaced">
+    <div class="navbar-brand  ">
+      <a class="navbar-item">
+        <img src="../static/img/Vector.png" alt="Attendance Tracker" />
+      </a>
+      <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+
+    <div id="navbarExampleTransparentExample" class="navbar-menu">
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <div class="field is-grouped">
+
+            <button class="button is-rounded is-primary" onclick="window.location = 'http://Localhost:5000/dropsession'"
+              type="submit">Log out</button>
           </div>
         </div>
-      
-        <div id="navbarExampleTransparentExample" class="navbar-menu">
-          <div class="navbar-start">
-            <a class="navbar-item" href="#">
-              Home
-            </a>
-            <button class="button is-dark" onclick="window.location = 'http://Localhost:5000/dropsession'" type="submit">Log out</button>
-            
+      </div>
+    </div>
+  </nav>
+
+
+  <section class=" section hero is-fullheight ">
+
+    <div class="columns">
+      <div class="column is-2 ml-2">
+        <aside class="menu">
+          <p class="menu-label">
+            About
+          </p>
+          <ul class="menu-list">
+            <li><a>Meet the Team</a></li>
+            <li><a>About HackClub, SKNCOE </a></li>
+          </ul>
+
+          <ul class="menu-list">
+
+            <li>
+              <a class="is-active">About Project</a>
+              <ul>
+                <li><a>Technologies Used</a></li>
+                <li><a>Future Development</a></li>
+                <li><a>Request a feature</a></li>
+              </ul>
+            </li>
+
+
+        </aside>
+
+      </div>
+      <div class="column">
+        <div class="container">
+          <div class="notification">
+            <h1 class="title">Welcome, {{user}}</h1>
+
           </div>
-      
-          <div class="navbar-end">
-            <div class="navbar-item">
-              <div>Name - {{user}} </div>
-              
-              <div> </div>
+
+
+          <div id="works" class="columns is-desktop  ">
+            <div class="column  ">
+              <form action="/uploadfile" method="POST" enctype="multipart/form-data">
+                <div class="dashboard box has-text-centered">
+                  <h1 class="subtitle is-3">Upload your CSV files here</h1>
+                  <div class="select">
+                    <select required name="attendance" id="myselect"></select>
+                    <div id="value_lable">
+                      {% for suggestion in subjects %}
+                      {%if suggestion != "none none none none none"%}
+                      <script>
+                        document.getElementById("myselect").innerHTML += `
+                              <option required>{{suggestion}}</option>`
+                      </script>
+                      {% endif %}
+                      {% endfor %}
+                    </div>
+                  </div>
+                  <div>
+                    <label for="myfile"
+                      style="display:block;width:150px; height:40px;display: block;margin: 20px auto;text-align: center;"
+                      class="button is-primary" accept="application/vnd.ms-excel , .csv">Select a CSV file</label>
+                    <input type="file" style="visibility: hidden;" id="myfile" onchange="uploadFile()" name="myfile"
+                      multiple>
+                  </div>
+                  <p class="mb-2" id="loaded_n_total"></p>
+                  <div class="control mt-0">
+                    <input type="submit" value="Upload it " onclick="startLoader()" class="button is-primary "></input>
+                  </div>
+                </div>
+              </form>
+            </div>
+
+            <div class="column ">
+              <form action="/download" method="POST">
+                <div class="dashboard box has-text-centered">
+                  <h1 class="subtitle is-3">Download PDF version of Attendance</h1>
+                  <div class="select">
+                    <select required name="attendance1" id="myselect1"></select>
+                    <div id="value_lable">
+                      {% for suggestion in subjects %}
+                      {%if suggestion != "none none none none none"%}
+                      <script>
+                        document.getElementById("myselect1").innerHTML += `
+                              <option required>{{suggestion}}</option>`
+                      </script>
+                      {% endif %}
+                      {% endfor %}
+                    </div>
+                  </div>
+                  <input type="submit" value="Download" class="button is-rounded is-primary"></input>
+
+                </div>
+              </form>
             </div>
           </div>
+
+
+
+
         </div>
-      </nav>
-      <section>
-        
-        <div class="columns is-desktop is-vcentered ">
-          <div class="column ">
-          <form action = "/upload" method="GET">
-              <div class="box has-text-centered">
-                <button class="button">Upload</button>
-              </div>
-          </form>
-          </div> 
-          <div class="column ">
-            <form action = "/maincheck" method="GET">
-              <div class="box has-text-centered">
-                <button class="button">download</button>
-              </div>
-            </form>  
-          </div>  
-        </div>
-            
-          
-           
-      </section>
+
+      </div>
+
+    </div>
+
+
+
+  </section>
+
+
+  <script>
+    function _(el) {
+      return document.getElementById(el);
+    }
+
+    function uploadFile() {
+      var file = _("myfile").files[0];
+      // alert(file.name+" | "+file.size+" | "+file.type);
+      document.getElementById("loaded_n_total").innerHTML = file.name
+
+    }
+
+  </script>
+  <script src="../static/js/script.js"></script>
 </body>
+
+
 </html>

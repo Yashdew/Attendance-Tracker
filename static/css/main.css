@@ -1,0 +1,48 @@
+/* globals */
+.button {
+  transform: 0.125s ease-in-out, box-shadow 0.125s ease-in-out;
+  justify-content: center;
+  cursor: pointer;
+}
+.button:hover {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.0625), 0 8px 12px rgba(0, 0, 0, 0.125);
+  transform: scale(1.0625);
+}
+.is-primary {
+  background-color: #ec3750 !important;
+  color: #ffffff !important;
+}
+
+.is-span {
+  color: #ec3750 !important;
+}
+
+.is-dark {
+  /* background-color: #e0e6ed !important; */
+  background-color: #252429 !important;
+}
+
+/* NAVBAR */
+.navbar {
+  background-color: #252429 !important;
+}
+
+/* FOOTER */
+.is-white-text {
+  color: #ffffff !important;
+}
+.footer {
+  padding: 1.5rem 1.5rem !important;
+}
+
+/* MAINLOGIN */
+.container.box {
+  padding: 5rem;
+}
+.modal-content {
+  padding: 0rem 1rem;
+}
+
+.dashboard {
+  padding: 5rem 0rem !important;
+}

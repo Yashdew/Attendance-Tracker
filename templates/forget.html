@@ -1,90 +1,153 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script
-      src="https://kit.fontawesome.com/df67bacc25.js"
-      crossorigin="anonymous"
-    ></script>
-    
-    <!--<link rel="stylesheet" href="css/main.css"/>-->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Attendance Tracker</title>
+  <link rel="icon" href="../static/img/Vector.png" size="32">
+  <script src="https://kit.fontawesome.com/df67bacc25.js" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="../static/css/main.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css" />
 </head>
+
 <body>
-    <nav class="navbar is-transparent">
-        <div class="navbar-brand">
-          <a class="navbar-item" href="#">
-            <img src="https://bulma.io/images/bulma-logo.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28">
-          </a>
-          <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
-            <span></span>
-            <span></span>
-            <span></span>
+  <nav class="navbar is-transparent is-spaced">
+    <div class="navbar-brand  ">
+      <a class="navbar-item">
+        <img src="../static/img/Vector.png" alt="Attendance Tracker" />
+      </a>
+      <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+
+    <div id="navbarExampleTransparentExample" class="navbar-menu">
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <div class="field is-grouped">
+            <p class="control">
+
+              <button onclick="window.location='/'" id="login" class="button is-rounded is-primary">
+                Login
+              </button>
+
+
+            </p>
+            <form action="/signup" method="GET">
+              <p class="control">
+
+                <button class="button is-rounded  ">
+                  SignUp
+                </button>
+
+              </p>
+            </form>
+
+            </p>
+            </form>
           </div>
         </div>
-      
-        <div id="navbarExampleTransparentExample" class="navbar-menu">
-          <div class="navbar-start">
-            <a class="navbar-item" href="#">
-              Home
-            </a>
-            
-          </div>
-      
-          <div class="navbar-end">
-            <div class="navbar-item">
-              <div class="field is-grouped">
-                <form action = "/signup" method="GET">
-                    <button class="button">signup</button>
-                </form>    
-                <!--<form action = "/login" method="GET">
-                    <button class="button">Login</button>
-                </form>-->
-                <form action = "/mainlogin" method="GET">
-                  <button class="button">Main Login</button>
-                </form>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero is-fullheight-with-navbar">
+    <div class="hero-body">
+      <div class="container">
+        <div class="columns  is-centered">
+
+
+
+          <div class="column box is-4  ">
+            <h1 class="title is-2 has-text-centered">An email with an <span class="is-span"> OTP</span> would be sent to
+              your email address </h1>
+            <form action="/OTPforpassword" method="POST">
+
+              <div class="field">
+                <label class="label">Email</label>
+                <div class="control ">
+                  <input class="input " name="Email" type="email" placeholder="Email" required>
+                </div>
               </div>
-            </div>
+
+              <div class="field is-grouped">
+                <div class="control">
+                  <button class="button is-rounded is-primary" id="btnSubmit">Generate OTP</button>
+                </div>
+              </div>
+            </form>
+
+
+
           </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         </div>
-      </nav>
-      <section>
-        <div class="columns is-mobile is-centered mt-6 pt-6">
-            <div class="column is-half">
-                        <form  action = "/OTPforpassword" method="POST">
-                          <h1 class="title is-3 has-text-danger has-text-centered" >Enter your Email Id</h1>
-                            <div class="field">
-                              <label class="label">Email</label>
-                              <div class="control ">
-                                  <input class="input " name="Email" type="email" placeholder="Email" required>
-                              </div>
-                            </div>
-                            
-                            <div class="field is-grouped">
-                                <div class="control">
-                                <button class="button is-link" id="btnSubmit">Generate OTP</button>
-                                </div>
-                            </div>
-                        </form>
-                       <!--<form  action = "/OTPforpassword" method="POST">
-                          
-                            <div class="field">
-                              <label class="label">One Time Password</label>
-                              <div class="control ">
-                                  <input class="input" id="OTP" name="OTP" type="password" placeholder="OTP" required>
-                              </div>
-                            </div>
-                            
-                            <div class="field is-grouped">
-                                <div class="control">
-                                <button class="button is-link" id="btnSubmit">Submit</button>
-                                </div>
-                            </div>
-                        </form>-->
-            </div>
-          </div>
-      </section>
+
+      </div>
+
+
+
+    </div>
+
+    </div>
+    </div>
+  </section>
+
+
+
+
+
+  <footer class="footer is-dark">
+    <div class="content has-text-centered">
+      <h3 class="subtitle is-3 is-white-text">
+        Made with love from <strong> <a class="is-span" target="_blank" href="http://skn.hackclub.com"> Hack Club,
+            SKNCOE</a></strong>
+
+      </h3>
+      <div class="column">
+        <p class="title is-4 is-white-text">Join the Club</p>
+        <p class="subtitle is-4 mt-1">
+          <a href="https://twitter.com/hackclubskn" class="mx-2">
+            <i class=" is-span fab fa-twitter"></i>
+          </a>
+          <a class="mx-2">
+
+            <i class=" is-span fab fa-instagram">
+
+            </i>
+          </a>
+          <a href="https://www.linkedin.com/company/hack-club-skn" class="mx-2">
+            <i class=" is-span fab fa-linkedin-in"></i>
+          </a>
+          <a class="mx-2">
+            <i class=" is-span fab fa-github"></i>
+          </a>
+        </p>
+
+      </div>
+    </div>
+  </footer>
+
+  <script src="../static/js/script.js"></script>
 </body>
+
 </html>

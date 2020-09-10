@@ -13,59 +13,75 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
 </head>
 <body>
-    <nav class="navbar is-transparent">
-        <div class="navbar-brand">
-          <a class="navbar-item" href="#">
-            <img src="https://bulma.io/images/bulma-logo.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28">
-          </a>
-          <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
-            <span></span>
-            <span></span>
-            <span></span>
+  <nav class="navbar is-transparent is-spaced">
+    <div class="navbar-brand  ">
+      <a class="navbar-item">
+        <img src="../static/img/Vector.png" alt="Attendance Tracker" />
+      </a>
+      <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+
+    <div id="navbarExampleTransparentExample" class="navbar-menu">
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <div class="field is-grouped">
+            <p class="control">
+
+              <button id="login" class="button is-rounded is-primary">Login</button>
+
+
+            </p>
+            <form action="/signup" method="GET">
+              <p class="control">
+
+                <button class="button is-rounded  ">
+                  SignUp
+                </button>
+
+              </p>
+            </form>
+
+            </p>
+            </form>
           </div>
         </div>
-      
-        <div id="navbarExampleTransparentExample" class="navbar-menu">
-          <div class="navbar-start">
-            <a class="navbar-item" href="#">
-              Home
-            </a>
-            
-          </div>
-      
-          <div class="navbar-end">
-            <div class="navbar-item">
-              <div class="field is-grouped">
-                <form action = "/signup" method="GET">
-                    <button class="button">signup</button>
-                </form>    
-                <form action = "/login" method="GET">
-                    <button class="button">Login</button>
-                </form>
-                <form action = "/mainlogin" method="GET">
-                  <button class="button">Main Login</button>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-      </nav>
+      </div>
+    </div>
+  </nav>
       <section>
         <div class="columns is-mobile is-centered mt-6 pt-6">
             <div class="column is-half">
                 <h1 class="title is-3 has-text-danger has-text-centered" ><!--Check your mail {{name}} || {{email}} || {{token}}--></h1>
                         <form  action = "/updatepassword" method="POST">
-                          
-                            <!--<div class="field">
+                          <h1 class="title is-3 has-text-danger has-text-centered">Check your mail {{Email}}</h1>
+                            <div class="field">
                               <label class="label">One Time Password</label>
                               <div class="control ">
-                                  <input class="input" id="OTP" name="OTP" type="password" placeholder="OTP" required>
+                                  <input class="input" id="otp" name="OTP" type="password" placeholder="OTP" required>
                               </div>
-                            </div>-->
-                            
+                            </div>
+                            <p id="error" style="display: none;">One Time Password is WRONG</p>
+                            <div class="field">
+                              <label class="label">Password</label>
+                              <div class="control ">
+                                <input class="input" id="txtPassword" name="Password" type="password" placeholder="Password" value=""
+                                  required>
+                              </div>
+                            </div>
+                            <div class="field">
+                              <label class="label">Confirm Password</label>
+                              <div class="control ">
+                                <input class="input" id="txtConfirmPassword" name="CPassword" type="Password"
+                                  placeholder="Confirm Password" value="" required>
+                              </div>
+                            </div>
                             <div class="field is-grouped">
                                 <div class="control">
-                                <button class="button is-link" id="btnSubmit">Submit</button>
+                                <button class="button is-link" id="btnSubmit" >Submit</button>
                                 </div>
                             </div>
                         </form>
@@ -75,16 +91,50 @@
 </body>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 <script type="text/javascript">
-    $(function () {
-        $("#btnSubmit").click(function () {
-            
-            var otp = $("#OTP").val();
-            if (otp!="0000") {
-                alert("OTP is wrong.");
+   $(function () {
+   $("#btnSubmit").click(function () {
+    //var OTPLSD = {{ OTP }};
+    var OTP2 = $("#otp").val();
+
+    if({{otp1}}){
+      console.log("1");
+      document.querySelector('#error').style.display ="block"  
+      console.log("2");
+      }
+    //console.log(typeof(OTPLSD));
+    //console.log(typeof(OTP2));
+    /*if (OTPLSD != OTP2) {
+                alert("secret ID do not match.");
+                return false;
+            }
+            return true;*/
+  });
+});
+ /*  $(function () {
+   $("#btnSubmit").click(function () {
+    var OTP1 = {{ OTP }};
+    var OTP2 = $("#otp").val();
+    if (OTP2 != OTP1) {
+                alert("secret ID do not match.");
                 return false;
             }
             return true;
-        });
+  });
+});*/
+</script>
+
+<script type="text/javascript">
+  $(function () {
+    $("#btnSubmit").click(function () {
+      var password = $("#txtPassword").val();
+      var confirmPassword = $("#txtConfirmPassword").val();
+
+      if (password != confirmPassword) {
+        alert("Passwords do not match.");
+        return false;
+      }
+      return true;
     });
+  });
 </script>
 </html>

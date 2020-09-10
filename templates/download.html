@@ -1,64 +1,181 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script
-      src="https://kit.fontawesome.com/df67bacc25.js"
-      crossorigin="anonymous"
-    ></script>
-    
-    <!--<link rel="stylesheet" href="css/main.css"/>-->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <script src="https://kit.fontawesome.com/df67bacc25.js" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="../static/css/main.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css" />
 </head>
+
 <body>
-    <nav class="navbar is-transparent">
-        <div class="navbar-brand">
-          <a class="navbar-item" href="#">
-            <img src="https://bulma.io/images/bulma-logo.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28">
-          </a>
-          <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
-            <span></span>
-            <span></span>
-            <span></span>
+  <nav class="navbar is-transparent is-spaced">
+    <div class="navbar-brand  ">
+      <a class="navbar-item">
+        <img src="../static/img/Vector.png" alt="Attendance Tracker" />
+      </a>
+      <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+
+    <div id="navbarExampleTransparentExample" class="navbar-menu">
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <div class="field is-grouped">
+
+            <button class="button is-rounded is-primary" onclick="window.location = 'http://Localhost:5000/dropsession'"
+              type="submit">Log out</button>
           </div>
         </div>
-      
-        <div id="navbarExampleTransparentExample" class="navbar-menu">
-          <div class="navbar-start">
-            <a class="navbar-item" href="#">
-              Home
-            </a>
-            
+      </div>
+    </div>
+  </nav>
+
+
+  <section class=" section hero is-fullheight ">
+
+    <div class="columns">
+      <div class="column is-2 ml-2">
+        <aside class="menu">
+          <p class="menu-label">
+            About
+          </p>
+          <ul class="menu-list">
+            <li><a>Meet the Team</a></li>
+            <li><a>About HackClub, SKNCOE </a></li>
+          </ul>
+
+          <ul class="menu-list">
+
+            <li>
+              <a class="is-active">About Project</a>
+              <ul>
+                <li><a>Technologies Used</a></li>
+                <li><a>Future Development</a></li>
+                <li><a>Request a feature</a></li>
+              </ul>
+            </li>
+
+
+        </aside>
+
+      </div>
+      <div class="column">
+        <div class="container">
+          <div class="notification">
+            <h1 class="title">Your file was submitted successfully!</h1>
+
           </div>
-      
-          <div class="navbar-end">
-            <div class="navbar-item">
-              <div class="field is-grouped">
-                <form action = "/signup" method="GET">
-                    <button class="button">signup</button>
-                </form>    
-                <form action = "/signup" method="GET">
-                    <button class="button">Login</button>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-      </nav>
-      <section>
-        <div class="columns is-mobile is-centered mt-6 pt-6">
+          <div class="columns is-mobile is-centered mt-6 pt-6">
             <div class="column is-half">
-              <p class="title is-3"></p>
-              <!--<p class="title is-3">Username - {{username}}</p>
-              <p class="title is-3">email - {{email}}</p>-->
-              <h1>Sheets</h1>
-              <a href="{{name}}" class="title is-3">Link is - {{name}}
+              <a href="{{name}}" class="title is-3">Here's your <span class="is-span"> google sheet link </span> </a>
+              <br>
+              <h3 class="subtitle is-5 my-3">Not clickable? Copy paste the below Link </h3>
+              <h3 class="subtitle is-5 my-3"> {{name}} </h3>
+              <br>
+              <a href="/protected">
+                <button class="button is-rounded is-primary" type="submit">Go Back to Dashboard</button>
+
+              </a>
+
             </div>
 
-            
-        </div>    
-      </section>
+
+          </div>
+
+
+
+
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+  </section>
+
+
+
+
+
+  <script src="../static/js/script.js"></script>
 </body>
+
+
 </html>
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://kit.fontawesome.com/df67bacc25.js" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="../static/css/main.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+</head>
+
+<body>
+  <nav class="navbar is-transparent">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="#">
+        <img src="https://bulma.io/images/bulma-logo.png" alt="Bulma: a modern CSS framework based on Flexbox"
+          width="112" height="28">
+      </a>
+      <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+
+    <div id="navbarExampleTransparentExample" class="navbar-menu">
+      <div class="navbar-start">
+        <a class="navbar-item" href="#">
+          Home
+        </a>
+
+      </div>
+
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <div class="field is-grouped">
+            <form action="/signup" method="GET">
+              <button class="button">signup</button>
+            </form>
+            <form action="/signup" method="GET">
+              <button class="button">Login</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <section>
+    <div class="columns is-mobile is-centered mt-6 pt-6">
+      <div class="column is-half">
+        <p class="title is-3"></p>
+
+        <h1>Sheets</h1>
+        <a href="{{name}}" class="title is-3">Link is - {{name}}
+      </div>
+
+
+    </div>
+  </section>
+</body>
+
+</html> -->
