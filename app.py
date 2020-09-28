@@ -36,8 +36,8 @@ app.config.from_pyfile('config.cfg')
 mail = Mail(app)
 s = URLSafeTimedSerializer('Thisisasecret!')
 
-myclient = pymongo.MongoClient(
-    "mongodb+srv://yashdew:5kAa9bRquer0cRtq@cluster0.c6ung.mongodb.net/yashdew?retryWrites=true&w=majority")
+API_KEY = os.environ.get('API_KEY')
+myclient = pymongo.MongoClient(API_KEY) #imp
 
 
 mydb = myclient["Yashdb1"]
