@@ -30,7 +30,7 @@ credentials = ServiceAccountCredentials.from_json_keyfile_name(
 gc = gs.authorize(credentials)
 
 app = Flask(__name__)
-app.secret_key = "emHMtBQQzY7nmlOd"
+
 
 app.config.from_pyfile('config.cfg')
 mail = Mail(app)
